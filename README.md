@@ -35,6 +35,7 @@ it the shell times come from the radial profile `data/tkr_profile_brian.npz`.
 * k-space is the centred FFT of the image: $K(\mathbf{k}) = \mathcal{F}\{m\}$. The normalised k-radius is per axis, $|\mathbf{k}|^2 = (k_x/k_x^{\rm Nyq})^2 + (k_y/k_y^{\rm Nyq})^2 + (k_z/k_z^{\rm Nyq})^2$, so the sampled cones sphere is inscribed with its edge at $|\mathbf{k}|=1$ (the ring code puts that edge at 0.5; the conversion is internal via `kr_edge`).
 * $t(\mathbf{k})$ is the acquisition time of the sample that landed at grid point $\mathbf{k}$ (0 → 8.5 ms for the breast protocol). It is only approximately radial (±16 % within a shell), which is why time windows ≠ radial shells.
 * Gains: the ring cascade returns $1.08\times$ the input (overlapping Hamming shells sum to 1.080); `time_seg_corr` with overlap 8 returns ≈ 2.9×. Divide by the gain before comparing intensities.
+* Masks: metrics use an Otsu tissue mask by default; `compute_metrics.py --mask` and `viewer.py --mask` take a boolean `[z, rows, cols]` volume instead — for the breast case a crude anatomical mask (Otsu tissue anterior to a slice-dependent chest-wall row, columns 40–730) restricts everything to breast tissue and excludes heart, chest wall and axilla.
 
 ## 2. The problem
 
@@ -65,7 +66,7 @@ $$
 \begin{aligned}
 \Phi_0 &= \angle m_0 \quad (\text{per voxel, unsmoothed}) \\
 r_n &= m_n\, e^{-i\Phi_{n-1}} && \text{(residual after removing earlier shells' phase)}\\
-s_n &= \operatorname{sgn}\!\big(\operatorname{Re} r_n\big)\, r_n && \text{(the ±π/2 rule: rectify the 0/π ambiguity)}\\
+s_n &= \mathrm{sgn}\!\big(\mathrm{Re} r_n\big)\, r_n && \text{(the +-pi/2 rule: rectify the 0/pi ambiguity)}\\
 \Delta\phi_n &= \angle\,(G * s_n) && \text{(magnitude-weighted phasor average over a neighbourhood)}\\
 \Phi_n &= \Phi_{n-1} + \Delta\phi_n,\qquad \hat m = \sum_n m_n\, e^{-i\Phi_n}.
 \end{aligned}
@@ -81,17 +82,17 @@ So the cascade is a conjugate-phase (time-segmented) correction whose per-segmen
 **Field maps from the cascade.** With shell times $t_n$ the increments are $\Delta\phi_n \approx -2\pi f\,\Delta t_n$ (k-space phase $e^{-i2\pi f t}$ convention). `ring_b0_corr_v2` returns
 
 $$
-\hat f_{\rm ls} = -\frac{\sum_n w_n\,\Delta\phi_n\,\Delta t_n}{2\pi\sum_n w_n\,\Delta t_n^2},\qquad w_n = 1 \;(\texttt{ls\_increment})\ \text{or}\ w_n = \text{coherence}_n^2 \;(\texttt{ls\_weighted}),
+\hat f_{\rm ls} = -\frac{\sum_n w_n\,\Delta\phi_n\,\Delta t_n}{2\pi\sum_n w_n\,\Delta t_n^2},
 $$
 
-which reads 1.01× a synthetic uniform field. `ring_b0_corr_matlab` returns the field map exactly as `ts_b0_corr.m` accumulates it — per shell `ex_field_map += angle(image_copy .* corr_phase) / (ring_time(n) − ring_time(n−1))`, i.e. $\angle\big((G*s_n)\,e^{-i\Phi_{n-1}}\big)/\Delta t_n$, then divided by $(N-1)\,2\pi$ — reproduced literally; note it reads 1.97× the synthetic field with MATLAB's sign (the second multiplication by the accumulated phase; marked "still being tested" in the source). Shell-derived maps are blind above the cap: a true 160 Hz reads as ~30 Hz.
+with $w_n = 1$ (`ls_increment`) or $w_n = c_n^2$, $c_n$ the shell's phasor coherence (`ls_weighted`); both read 1.01× a synthetic uniform field. `ring_b0_corr_matlab` returns the field map exactly as `ts_b0_corr.m` accumulates it — per shell `ex_field_map += angle(image_copy .* corr_phase) / (ring_time(n) − ring_time(n−1))`, i.e. $\angle\big((G*s_n)\,e^{-i\Phi_{n-1}}\big)/\Delta t_n$, then divided by $(N-1)\,2\pi$ — reproduced literally; note it reads 1.97× the synthetic field with MATLAB's sign (the second multiplication by the accumulated phase; marked "still being tested" in the source). Shell-derived maps are blind above the cap: a true 160 Hz reads as ~30 Hz.
 
 ## 4. Predict-unwrap variant (method B, `unwrap="predict"`)
 
 Identical shells, kernel and combination; only the rectification reference changes. From the previous shells' increments a running, coherence-weighted phase slope $\hat s = \sum w\,\Delta\phi\,\Delta t / (\sum w\,\Delta t^2 + \lambda)$ predicts this shell's increment $p_n = \hat s\,\Delta t_n$, and the sign is rectified *around the prediction*:
 
 $$
-s_n = \operatorname{sgn}\!\big(\operatorname{Re}(r_n e^{-ip_n})\big)\, r_n e^{-ip_n},\qquad \Delta\phi_n = p_n + \angle(G * s_n).
+s_n = \mathrm{sgn}\!\big(\mathrm{Re}(r_n e^{-ip_n})\big)\, r_n e^{-ip_n},\qquad \Delta\phi_n = p_n + \angle(G * s_n).
 $$
 
 This is temporal phase unwrapping as in multi-echo field mapping: the ±π/2 limit now applies to the *prediction error* rather than to the increment itself, so a uniform off-resonance is no longer capped (synthetic: 160 Hz → NRMSE 0.050 vs 0.179 for A; 200 Hz → 0.079 vs 0.256). The ridge $\lambda$ shrinks the prediction to zero where the accumulated coherent evidence is weak, so in incoherent regions B reduces to A.
@@ -133,7 +134,7 @@ frequency (float32 magnitude; `--complex` keeps the phase at 2× disk).
 For each candidate frequency $f$ in a list: $m_f = \mathcal{F}^{-1}\{K e^{+i2\pi f t}\}$, referenced to **its own** low-pass phase $\psi_f = \angle\mathcal{F}^{-1}\{L\,K e^{+i2\pi f t}\}$ ($L$ = $|\mathbf{k}|\le 0.1$), and the focus criterion
 
 $$
-c_f(\mathbf{r}) = \big\langle\, |\operatorname{Im}(m_f e^{-i\psi_f})|\,\big\rangle_{\rm window}.
+c_f(\mathbf{r}) = \big\langle\, |\mathrm{Im}(m_f e^{-i\psi_f})|\,\big\rangle_{\rm window}.
 $$
 
 A real object demodulated at its true frequency is real after removing the low-res phase; residual off-resonance leaves odd-symmetric imaginary sidelobes at edges, so $c_f$ is minimised at the true $f$ — but only where there are edges. The per-voxel argmin is therefore propagated into flat tissue by normalised-convolution smoothing with weight (criterion range over $f$) × (low-res magnitude), and a second pass assembles $\hat m(\mathbf{r}) = m_{f^*(\mathbf{r})}(\mathbf{r})$ so the candidate stack is never held in memory. Synthetic uniform +40/+90/+130 Hz → NRMSE 0.000–0.003, no frequency cap. On the breast volume it ties the ring cascade at every $|B_0|$ level and loses to it by +0.6 px on the extreme skin edges — consistent with the known ceiling of per-voxel *selection* (off-resonance blur is additive; a selected candidate cannot subtract its neighbours' out-of-focus contribution).

@@ -23,13 +23,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--orig", required=True)
     ap.add_argument("--results", default=os.path.join(HERE, "results"))
+    ap.add_argument("--mask", default=None, help="bool volume [z,rows,cols] to use instead of the Otsu tissue mask (e.g. a breast mask)")
     args = ap.parse_args()
     orig = np.load(args.orig, mmap_mode="r")
     files = sorted(f for f in glob.glob(os.path.join(args.results, "*.npy"))
                    if not any(s in os.path.basename(f) for s in ("_fmap", "_selected_freq", "_patch")))
     omag = np.abs(np.asarray(orig)).astype(np.float32)
-    mask3 = tissue_mask(omag)
-    masks2 = [tissue_mask(omag[z]) for z in range(omag.shape[0])]
+    if args.mask:
+        mask3 = np.load(args.mask).astype(bool)
+        masks2 = [mask3[z] for z in range(omag.shape[0])]
+    else:
+        mask3 = tissue_mask(omag)
+        masks2 = [tissue_mask(omag[z]) for z in range(omag.shape[0])]
     base3 = r12_r13(omag, mask3)
     base2 = [r12_r13(omag[z], masks2[z]) for z in range(omag.shape[0])]
     out = {"orig": {"volume": {**base3, "r12": 1.0, "r13": 1.0, "gain": 1.0},
@@ -49,6 +54,7 @@ def main():
         print(f"{name:14s} gain {gain:.3f}  3D: gradient entropy {c3['R12']:.3f} (×{rr3['r12']:.3f})  "
               f"gradient energy {c3['R13']:.3e} (×{rr3['r13']:.3f})", flush=True)
         del v
+    out["_mask"] = args.mask or "otsu"
     with open(os.path.join(args.results, "metrics.json"), "w") as fh:
         json.dump(out, fh)
     print(f"wrote {args.results}/metrics.json")

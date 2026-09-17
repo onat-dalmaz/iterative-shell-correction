@@ -28,7 +28,9 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--orig", required=True)
 ap.add_argument("--results", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "results"))
 ap.add_argument("--port", type=int, default=8053)
+ap.add_argument("--mask", default=None, help="bool volume [z,rows,cols] used for the metrics instead of the per-slice Otsu mask (e.g. a breast mask)")
 ARGS = ap.parse_args()
+MASK3 = np.load(ARGS.mask, mmap_mode="r") if ARGS.mask else None
 
 VOLS: dict[str, np.ndarray] = {"orig": np.load(ARGS.orig, mmap_mode="r")}
 LABELS: dict[str, str] = {"orig": "original (uncorrected)"}
@@ -74,7 +76,7 @@ _SLICE: dict[tuple[str, int], dict] = {}
 
 def mask_for(z):
     if z not in _MASK:
-        _MASK[z] = tissue_mask(np.asarray(VOLS["orig"][z]))
+        _MASK[z] = np.asarray(MASK3[z]).astype(bool) if MASK3 is not None else tissue_mask(np.asarray(VOLS["orig"][z]))
     return _MASK[z]
 
 
@@ -132,7 +134,7 @@ LAB = {"fontSize": "12px", "fontWeight": "600", "color": "#333", "marginBottom":
 app.layout = html.Div([
     dcc.Location(id="url", refresh=False),
     html.H3("Cones off-resonance correction — lean viewer", style={"marginBottom": "2px"}),
-    html.Div("Gradient entropy (R12) and normalised gradient energy (R13): gradient CONCENTRATION in the tissue mask, "
+    html.Div(f"Gradient entropy (R12) and normalised gradient energy (R13): gradient CONCENTRATION in the {'supplied mask (' + os.path.basename(ARGS.mask) + ')' if ARGS.mask else 'Otsu tissue mask'}, "
              "ratio vs original (>1 = more concentrated). Not a sharpness score — judge the images.",
              style={"fontSize": "12px", "color": "#666", "marginBottom": "8px"}),
     html.Div([

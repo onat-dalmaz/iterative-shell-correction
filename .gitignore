@@ -1,0 +1,7 @@
+results/
+*.npy
+*.mat
+*.log
+__pycache__/
+.DS_Store
+!data/tkr_profile_brian.npz

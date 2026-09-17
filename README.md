@@ -8,8 +8,9 @@ metrics, and a slice viewer. Everything is 3D.
 ```bash
 pip install -r requirements.txt
 python run_methods.py --orig volume.npy [--tmap kxyz_time.npy]   # results/*.npy + labels.json
+python run_mf_stack.py --orig volume.npy --tmap kxyz_time.npy    # results/mf_stack/ (Brian's MF recon at 31 frequencies)
 python compute_metrics.py --orig volume.npy                      # results/metrics.json
-python viewer.py --orig volume.npy --port 8053                   # http://127.0.0.1:8053/?z=42&a=ring_k9_N8&b=autofocus&zoom=217,327,644,754
+python viewer.py --orig volume.npy --port 8053                   # http://127.0.0.1:8053/?z=42&a=ring_k9_N8&b=mf_stack&f=-60&zoom=217,327,644,754
 python ring_b0_corr.py --selftest ; python time_seg_corr.py --selftest
 ```
 
@@ -24,7 +25,7 @@ it the shell times come from the radial profile `data/tkr_profile_brian.npz`.
 | `freq_seg_corr.py` | `freq_corr.m` (single-frequency recon) + `freq_seg_corr.m` (frequency-segmented per-voxel selection) |
 | `autofocus.py` | 3D field-map-free autofocus, streamed |
 | `metrics.py` | gradient entropy (R12) and normalised gradient energy (R13), 2D/3D |
-| `run_methods.py`, `compute_metrics.py`, `viewer.py`, `examples/` | workflow, metrics cache, Dash viewer, view rendering, time-map resampling |
+| `run_methods.py`, `run_mf_stack.py`, `compute_metrics.py`, `viewer.py`, `examples/` | workflow, Brian's MF stack for the slider, metrics cache, Dash viewer (synced zoom, frequency slider, per-box metrics), view rendering, time-map resampling |
 
 ---
 
@@ -111,6 +112,21 @@ segment images $\mathcal{F}^{-1}\{W_s K\}$, then steps identical to §3 with ker
 
 `freq_corr`: reconstruct at one offset frequency exactly, $m_f = \mathcal{F}^{-1}\{K\,e^{+i2\pi f\,t(\mathbf{k})}\}$ — the building block of the multifrequency stack.
 `freq_seg_corr` (as committed): remove the low-res phase of the *uncorrected* image once, reconstruct at each $f$ in a list, low-pass the **signed** imaginary part on a patch with a 5³ kernel, and pick per voxel `min(patch_imag, [], 4)`. Two consequences observed on the breast skin-edge patch: minimising the signed imaginary part selects the ends of the frequency range (±150 Hz for 61 % of tissue voxels), and the single reference makes flat tissue vote for 0 Hz. The port is literal so the behaviour can be discussed; §7 is the same idea with both points changed.
+
+### 6a. The multifrequency stack in the viewer (`run_mf_stack.py`)
+
+Brian's manual workflow — reconstruct at many frequencies and tune the frequency
+while looking at a tissue or patch — is reproduced exactly: `run_mf_stack.py`
+runs `freq_corr` in full 3D at every frequency on a grid (default −150…+150 Hz
+in 10 Hz steps, 31 volumes) and stores each $|m_f|$; the viewer exposes the
+stack as the method `freq_corr.m at slider frequency` with a **frequency
+slider**, a zoom box that defines the patch, per-box gradient entropy / energy
+for the current frequency, and a *scan* button that tabulates both ratios for
+every frequency inside the box. Views are shareable:
+`?z=42&a=ring_k9_N8&b=mf_stack&f=-60&zoom=217,327,644,754`. Tuned per patch by
+eye this is the per-patch oracle; the scan table is only an aid (gradient
+concentration also rises with noise and texture). Storage: 264 MB per
+frequency (float32 magnitude; `--complex` keeps the phase at 2× disk).
 
 ## 7. Field-map-free autofocus, 3D (`autofocus.py`)
 

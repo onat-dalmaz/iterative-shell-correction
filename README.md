@@ -149,23 +149,5 @@ $$
 
 reported as ratios vs the original — $r_{12} = (R_{12}^{\max}-R_{12})/(R_{12}^{\max}-R_{12}^{\rm orig})$, $r_{13} = (R_{13}-R_{13}^{\min})/(R_{13}^{\rm orig}-R_{13}^{\min})$ — in 2D per slice and in 3D. They are gain-invariant and measure gradient *concentration*; a Gaussian blur of a noisy image raises both (it suppresses many small noise gradients more than the few coherent edge gradients), so they are an artifact-reading aid next to the image, not a sharpness score. Edge sharpness in our evaluation is the 10–90 % edge-spread width at edges fixed on a reference, with paired differences and bootstrap CIs (kept in the analysis repo, not here).
 
-## 9. Results on the breast volume (5336 fixed edges, paired vs `ts_b0_corr.m` N=8)
-
-| method | median edge width | paired vs A by \|B0\| bin (px; * CI excludes 0) | guards |
-|---|---|---|---|
-| uncorrected | 6.43 | | |
-| **A: ts_b0_corr.m N=8, kernel 9** | 5.96 | — | clean |
-| ring_b0_corr.m N=8, kernel 7 | 5.94 | 0.000 in every bin | clean |
-| ts_b0_corr.m N=16 | 6.01 | +0.02…+0.05* below 60 Hz, −0.10 at 130–200 | clean |
-| B: predict unwrap | — | 0.00 / +0.01 / +0.01 / −0.08* / −0.10 / −0.32 (n.s.) | ghosted skin edge |
-| autofocus 3D | 5.76 | −0.01…−0.11, all CIs include 0 (tie); +0.64* on 82 extreme skin edges | clean, gain 1.0 |
-| time_seg_corr N=16 (overlap 8, resampled time map) | 6.85 | +0.3…+1.1* above 60 Hz | HF boost, gain 2.96 |
-| freq_seg_corr (patch) | 7.14 (patch) | +1.05* on the skin patch | range-end selections |
-
-On Brian's own sample (`sampledata.mat`, exact time map, 995 edges): ring N=8 5.07 px; time_seg_corr N=8/N=16 with overlap 2: 5.04 / 5.14 (tie); overlap 8: 5.60 with gain 2.9 and r_corner 0.88.
-
-## 10. 1:1 status against the MATLAB, and what would close it
-
-Reproduced by exact primitives: shells, Hamming windows, cascade order, ±π/2 rule, `fspecial3` (separable, 1e-7), `imfilter 'replicate'`, `ft3`/`ift3` (identical for even sizes), plain-mean shell times, the literal `ts_b0_corr.m` field-map accumulation, the `time_segment` window and `freq_seg_corr` selection; regression vs the original Python translation 3.5e-7; complex64 here vs double in MATLAB (~1e-6 expected). **Not done:** a numerical diff against MATLAB output (no license here). Kit: `check_1to1.m` (runs the three MATLAB functions on `sampledata.mat`/`time_kxyz.mat`, ≈2 min) + `diff_1to1.py` against saved Python references for identical inputs. Two things only Brian can confirm: the `sample_kradius` units he passes to `ts_b0_corr`, and the `overlap` used for the "16 segments best" result.
 
 The 3D sample-time map for the 768×768×112 breast grid was resampled from the 256³ `time_kxyz.mat` in per-axis-normalised k (radial medians agree with the profile to 0.05 ms); the exact map should come from the scan's own `kacq_cone` trajectory files.

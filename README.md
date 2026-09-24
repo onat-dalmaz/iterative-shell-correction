@@ -2,16 +2,18 @@
 
 Lean, dependency-light (numpy / scipy / scikit-image; dash + plotly for the
 viewer) implementations of the hierarchical phase-correction methods in
-`mribri999/timesegmentedphase`, one field-map-free autofocus baseline, two
-metrics, and a slice viewer. Everything is 3D.
+`mribri999/timesegmentedphase`, a field-map-free 3D autofocus with its coarse-to-fine and
+field-map-blend refinements, a pixel-level ring-phase inspector, sharpness metrics, and a slice
+viewer. Everything is 3D.
 
 ```bash
 pip install -r requirements.txt
 python run_methods.py --orig volume.npy [--tmap kxyz_time.npy]   # results/*.npy + labels.json
 python run_mf_stack.py --orig volume.npy --tmap kxyz_time.npy    # results/mf_stack/ (Brian's MF recon at 31 frequencies)
+python autofocus_blend.py --orig volume.npy --tmap kxyz_time.npy # smoothed / coarse-to-fine / field blend / gated blend
 python compute_metrics.py --orig volume.npy                      # results/metrics.json
 python viewer.py --orig volume.npy --port 8053                   # http://127.0.0.1:8053/?z=42&a=ring_k9_N8&b=mf_stack&f=-60&zoom=217,327,644,754
-python ring_b0_corr.py --selftest ; python time_seg_corr.py --selftest
+python ring_b0_corr.py --selftest ; python time_seg_corr.py --selftest ; python autofocus_blend.py --selftest
 ```
 
 `volume.npy` is a complex `[z, rows, cols]` image volume (coil-combined, gridded).
@@ -20,10 +22,13 @@ it the shell times come from the radial profile `data/tkr_profile_brian.npz`.
 
 | file | what |
 |---|---|
-| `ring_b0_corr.py` | radial-shell cascade (`ring_b0_corr.m` / `ts_b0_corr.m`) — `ring_b0_corr_matlab()` is the exact MATLAB equivalent; `ring_b0_corr_v2()` adds calibrated field maps and the predict-unwrap variant |
+| `ring_b0_corr.py` | radial-shell ring (`ring_b0_corr.m` / `ts_b0_corr.m`) — `ring_b0_corr_matlab()` is the exact MATLAB equivalent; `ring_b0_corr_v2()` adds calibrated field maps and the predict-unwrap variant |
 | `time_seg_corr.py` | `time_seg_corr.m` + `time_segment.m` (Brian's current method: windows in acquisition time) |
 | `freq_seg_corr.py` | `freq_corr.m` (single-frequency recon) + `freq_seg_corr.m` (frequency-segmented per-voxel selection) |
 | `autofocus.py` | 3D field-map-free autofocus, streamed |
+| `autofocus_blend.py` | refinements of the autofocus: coarse-to-fine search, margin reliability, field-map blend, gated blend (section 7b) |
+| `shell_diag.py` | pixel-level ring diagnostics: per-ring magnitude and phase at chosen voxels, real time spread per ring, weak-ring flags, linear fits (section 7c) |
+| `edge_width.py`, `iqm.py`, `compute_iqm_volume.py` | edge-spread width at edges fixed on the uncorrected image, Lim 2019 boundary score, reference-free measures (section 8a, including its caveat) |
 | `metrics.py` | gradient entropy (R12) and normalised gradient energy (R13), 2D/3D |
 | `run_methods.py`, `run_mf_stack.py`, `compute_metrics.py`, `viewer.py`, `examples/` | workflow, Brian's MF stack for the slider, metrics cache, Dash viewer (synced zoom, frequency slider, per-box metrics), view rendering, time-map resampling |
 
@@ -34,7 +39,7 @@ it the shell times come from the radial profile `data/tkr_profile_brian.npz`.
 * Volumes are `[z, rows, cols]`; the viewer's zoom box `y0,y1,x0,x1` means rows `y0:y1`, cols `x0:x1`. MATLAB's `[x, y, z]` is handled internally (axis 1 → x, axis 2 → y).
 * k-space is the centred FFT of the image: $K(\mathbf{k}) = \mathcal{F}\{m\}$. The normalised k-radius is per axis, $|\mathbf{k}|^2 = (k_x/k_x^{\rm Nyq})^2 + (k_y/k_y^{\rm Nyq})^2 + (k_z/k_z^{\rm Nyq})^2$, so the sampled cones sphere is inscribed with its edge at $|\mathbf{k}|=1$ (the ring code puts that edge at 0.5; the conversion is internal via `kr_edge`).
 * $t(\mathbf{k})$ is the acquisition time of the sample that landed at grid point $\mathbf{k}$ (0 → 8.5 ms for the breast protocol). It is only approximately radial (±16 % within a shell), which is why time windows ≠ radial shells.
-* Gains: the ring cascade returns $1.08\times$ the input (overlapping Hamming shells sum to 1.080); `time_seg_corr` with overlap 8 returns ≈ 2.9×. Divide by the gain before comparing intensities.
+* Gains: the ring returns $1.08\times$ the input (overlapping Hamming shells sum to 1.080); `time_seg_corr` with overlap 8 returns ≈ 2.9×. Divide by the gain before comparing intensities.
 * Masks: metrics use an Otsu tissue mask by default; `compute_metrics.py --mask` and `viewer.py --mask` take a boolean `[z, rows, cols]` volume instead — for the breast case a crude anatomical mask (Otsu tissue anterior to a slice-dependent chest-wall row, columns 40–730) restricts everything to breast tissue and excludes heart, chest wall and axilla.
 
 ## 2. The problem
@@ -47,7 +52,7 @@ $$
 
 Because $t$ grows with $|\mathbf{k}|$ along a centre-out cones readout, a voxel at frequency $\Delta f$ acquires the phase $2\pi\Delta f\,t(\mathbf{k})$ across k-space — a radially varying phase ramp, i.e. a blur whose width scales with $\Delta f \cdot T$ ($T$ = readout duration). Every method below tries to remove $e^{-i2\pi\Delta f(\mathbf{r}) t(\mathbf{k})}$ without a separately acquired field map.
 
-## 3. Ring cascade — `ring_b0_corr.m` / `ts_b0_corr.m` (method A)
+## 3. Ring — `ring_b0_corr.m` / `ts_b0_corr.m` (method A)
 
 **Shells.** $N$ spherical shells in normalised k-radius with centre-to-centre increment $\Delta = 0.5/(N-1)$; shell $n$ spans $[(n-1)\Delta, (n+1)\Delta)$ with a Hamming window
 
@@ -60,7 +65,7 @@ $$
 **Why the phase of a shell image is usable.** For a real-valued object a band-pass image is real, so its structural phase is 0 or π. Off-resonance adds $2\pi\Delta f\, t_n$. Hence, relative to the previous shell, the phase of $m_n$ is
 $\{0,\pi\} + 2\pi\Delta f\,(t_n - t_{n-1})$ — a sign ambiguity plus a small coherent increment.
 
-**The cascade** (accumulated phase $\Phi_n$, kernel $G$):
+**The ring** (accumulated phase $\Phi_n$, kernel $G$):
 
 $$
 \begin{aligned}
@@ -72,14 +77,14 @@ s_n &= \mathrm{sgn}\!\big(\mathrm{Re} r_n\big)\, r_n && \text{(the +-pi/2 rule: 
 \end{aligned}
 $$
 
-So the cascade is a conjugate-phase (time-segmented) correction whose per-segment phase is *estimated from the data itself*: the shells play the role of echoes at times $t_n$, the rectification removes the structural sign, and the smoothing kernel is the smooth-field prior. $G$ in MATLAB is `fspecial3('gaussian', s³, s/2)` — a Gaussian **truncated to an $s^3$ box**, effective std ≈ 1.9 voxels ($s=7$, `ring_b0_corr.m`) or 2.4 ($s=9$, `ts_b0_corr.m`). (`scipy.ndimage.gaussian_filter(σ=4.5)`, used in earlier Python work, is a full Gaussian twice as wide; on the breast volume the corrected images differ by 0.000 px in edge width.)
+So the ring is a conjugate-phase (time-segmented) correction whose per-segment phase is *estimated from the data itself*: the shells play the role of echoes at times $t_n$, the rectification removes the structural sign, and the smoothing kernel is the smooth-field prior. $G$ in MATLAB is `fspecial3('gaussian', s³, s/2)` — a Gaussian **truncated to an $s^3$ box**, effective std ≈ 1.9 voxels ($s=7$, `ring_b0_corr.m`) or 2.4 ($s=9$, `ts_b0_corr.m`). (`scipy.ndimage.gaussian_filter(σ=4.5)`, used in earlier Python work, is a full Gaussian twice as wide; on the breast volume the corrected images differ by 0.000 px in edge width.)
 
 **Limits that follow from the construction.**
 * *Frequency cap.* Rectification around zero assumes $|2\pi\Delta f\,\Delta t_n| < \pi/2$, i.e. $|\Delta f| < 1/(4\,\Delta t_{\max})$. For $N=8$ the largest consecutive step is 1.5 ms → nominal 166 Hz; on synthetic uniform fields the correction is clean to ~110 Hz and fails by 160 Hz. $N=16$ halves $\Delta t_{\max}$ (cap ~330 Hz) at the price of thinner, noisier shells.
-* *Coherence floor.* The phasor average $|G*s_n| / (G*|s_n|)$ equals $2/\pi = 0.637$ when the residual phase is uniformly random (folded into ±π/2): a shell at that floor carries no readable phase. In vivo, shells ≥ 3 of $N=8$ sit at the floor in most tissue — the cascade effectively corrects with shells 0–2 and applies ~0 to the rest, which is the safe behaviour.
+* *Coherence floor.* The phasor average $|G*s_n| / (G*|s_n|)$ equals $2/\pi = 0.637$ when the residual phase is uniformly random (folded into ±π/2): a shell at that floor carries no readable phase. In vivo, shells ≥ 3 of $N=8$ sit at the floor in most tissue — the ring effectively corrects with shells 0–2 and applies ~0 to the rest, which is the safe behaviour.
 * *Footprint rule.* A single per-voxel frequency cannot flatten a field that varies by more than half a cycle across the PSF footprint: correction is complete where $|\nabla B_0|\cdot w_{\rm PSF} \lesssim 1/(2T)$ (59 Hz for $T$ = 8.5 ms) and degrades beyond.
 
-**Field maps from the cascade.** With shell times $t_n$ the increments are $\Delta\phi_n \approx -2\pi f\,\Delta t_n$ (k-space phase $e^{-i2\pi f t}$ convention). `ring_b0_corr_v2` returns
+**Field maps from the ring.** With shell times $t_n$ the increments are $\Delta\phi_n \approx -2\pi f\,\Delta t_n$ (k-space phase $e^{-i2\pi f t}$ convention). `ring_b0_corr_v2` returns
 
 $$
 \hat f_{\rm ls} = -\frac{\sum_n w_n\,\Delta\phi_n\,\Delta t_n}{2\pi\sum_n w_n\,\Delta t_n^2},
@@ -99,15 +104,15 @@ This is temporal phase unwrapping as in multi-echo field mapping: the ±π/2 lim
 
 **Why B is not shipped as the default.** In vivo the late shells sit at the coherence floor, so the prediction extrapolates from shells 1–2 into shells that cannot confirm or refute it. Where the field varies steeply (skin, chest wall) the smoothed prediction is wrong by more than π/2 over part of the boundary, the rectification locks onto the wrong branch, that shell is added with a π error, and the edge acquires a sidelobe — the doubled skin contour at high $|B_0|$. Fixed-edge widths still favour B (tie below 60 Hz, −0.08 px at 60–90 Hz) because a width measure cannot see a ghost; the images can. B is useful as an uncapped field-map estimator (its map reads a physically plausible p95 ≈ 120 Hz where A's is capped at ~30 Hz) and as a diagnostic, not as the correction.
 
-## 5. Time-window cascade — `time_seg_corr.m` (Brian's current method)
+## 5. Time-window ring — `time_seg_corr.m` (Brian's current method)
 
-Same cascade, but the segments are windows in acquisition time using the 3D map $t(\mathbf{k})$: $N$ centres $t_s = (s-1)\,t_{\max}/(N-1)$, half-width $h = \text{spacing}\cdot\text{overlap}/2$,
+Same ring, but the segments are windows in acquisition time using the 3D map $t(\mathbf{k})$: $N$ centres $t_s = (s-1)\,t_{\max}/(N-1)$, half-width $h = \text{spacing}\cdot\text{overlap}/2$,
 
 $$
 W_s(\mathbf{k}) = 0.54 + 0.46\cos\!\Big(\pi\,\frac{t(\mathbf{k}) - t_s}{h}\Big)\ \ \text{for } |t(\mathbf{k}) - t_s| < h,
 $$
 
-segment images $\mathcal{F}^{-1}\{W_s K\}$, then steps identical to §3 with kernel size 7; the field map is the first interval only. With overlap 2 the windows sum to 1.080 and the method is the ring cascade in time units (on Brian's own sample: $N=8$ identical to the ring, $N=16$ a tie). With **overlap 8** — the value committed in `time_seg_corr.m` — each window spans ±4 spacings, the window sum runs 3.3 → 4.3 → 2.7 across the readout, and the output carries a mid-k boost that reads as sharpening but widens the median edge and lights up the high-frequency artifact guards. Which overlap produced the "16 segments best" images in the log is an open question for Brian.
+segment images $\mathcal{F}^{-1}\{W_s K\}$, then steps identical to §3 with kernel size 7; the field map is the first interval only. With overlap 2 the windows sum to 1.080 and the method is the ring in time units (on Brian's own sample: $N=8$ identical to the ring, $N=16$ a tie). With **overlap 8** — the value committed in `time_seg_corr.m` — each window spans ±4 spacings, the window sum runs 3.3 → 4.3 → 2.7 across the readout, and the output carries a mid-k boost that reads as sharpening but widens the median edge and lights up the high-frequency artifact guards. Which overlap produced the "16 segments best" images in the log is an open question for Brian.
 
 ## 6. Multi-frequency reconstruction — `freq_corr.m` / `freq_seg_corr.m`
 
@@ -137,7 +142,28 @@ $$
 c_f(\mathbf{r}) = \big\langle\, |\mathrm{Im}(m_f e^{-i\psi_f})|\,\big\rangle_{\rm window}.
 $$
 
-A real object demodulated at its true frequency is real after removing the low-res phase; residual off-resonance leaves odd-symmetric imaginary sidelobes at edges, so $c_f$ is minimised at the true $f$ — but only where there are edges. The per-voxel argmin is therefore propagated into flat tissue by normalised-convolution smoothing with weight (criterion range over $f$) × (low-res magnitude), and a second pass assembles $\hat m(\mathbf{r}) = m_{f^*(\mathbf{r})}(\mathbf{r})$ so the candidate stack is never held in memory. Synthetic uniform +40/+90/+130 Hz → NRMSE 0.000–0.003, no frequency cap. On the breast volume it ties the ring cascade at every $|B_0|$ level and loses to it by +0.6 px on the extreme skin edges — consistent with the known ceiling of per-voxel *selection* (off-resonance blur is additive; a selected candidate cannot subtract its neighbours' out-of-focus contribution).
+A real object demodulated at its true frequency is real after removing the low-res phase; residual off-resonance leaves odd-symmetric imaginary sidelobes at edges, so $c_f$ is minimised at the true $f$ — but only where there are edges. The per-voxel argmin is therefore propagated into flat tissue by normalised-convolution smoothing with weight (criterion range over $f$) × (low-res magnitude), and a second pass assembles $\hat m(\mathbf{r}) = m_{f^*(\mathbf{r})}(\mathbf{r})$ so the candidate stack is never held in memory. Synthetic uniform +40/+90/+130 Hz → NRMSE 0.000–0.003, no frequency cap. On the breast volume it ties the ring at every $|B_0|$ level and loses to it by +0.6 px on the extreme skin edges — consistent with the known ceiling of per-voxel *selection* (off-resonance blur is additive; a selected candidate cannot subtract its neighbours' out-of-focus contribution).
+
+### 7b. Refinements of the autofocus (`autofocus_blend.py`)
+
+All on the same 31-frequency grid (−300…+300 Hz, 20 Hz steps), same criterion as section 7.
+
+1. **Smoothed autofocus** $f_s$: section 7 with $\sigma_{\rm idx}=5$. Conservative. Reliable, but it reads small offsets low at the skin, where the field changes quickly and neighbours' out-of-focus signal leaks into each voxel's criterion.
+2. **Coarse-to-fine** $f_c$: search again, only over $f \in [f_s-60, f_s+60]$ Hz, with the cost box-filtered ($11\times11\times3$) inside that window and a parabolic sub-bin step. Aggressive: sharper edges, but it can lock onto a different minimum than $f_s$.
+3. **Margin** $\mu$: how decisive the minimum is, the depth of the best competing minimum at least 3 bins from the argmin, divided by the cost range. 1 = one clear minimum, 0 = two equally good branches.
+4. **Field blend**: $w = \mathrm{clip}\big(G_5(\mu)/p_{99},\,0,\,1\big)$, $\;f_b = w\,f_c + (1-w)\,f_s$, then reconstruct once. Blending the *field maps* rather than the images matters: a convex combination of two reconstructions softens wherever they disagree.
+5. **Gated blend**: $w' = w\,\exp\!\big(-(|f_c-f_s|/60\ {\rm Hz})^2\big)$. Where the two parents disagree by more than about 60 Hz they have picked different minima, and the blend falls back to $f_s$.
+6. **Assembly**: each voxel interpolates linearly between the two candidate reconstructions that bracket its frequency.
+
+`run_pipeline()` runs all of it; `python autofocus_blend.py --selftest` recovers a uniform +60 Hz offset on a small phantom with all four. The functions are bit-identical to the analysis scripts that produced our reported results.
+
+Which to use: the gated blend. On some data the plain blend inherits coarse-to-fine's wrong-minimum picks (a bright sliver in the skin, dark dots in muscle); the gate removes them without changing the result where the two parents agree.
+
+### 7c. Pixel-level ring diagnostics (`shell_diag.py`)
+
+`extract_shell_diagnostics(vol, tmap, locations)` returns, at each voxel (or small block): every ring's complex response, magnitude and phase, measured both against one **fixed** reference (ring 0) and against the **evolving** cascade, kept separate because mixing them makes a linear phase look curved; the real spread of acquisition times inside each ring next to its nominal mean time; a weak-response flag per ring (a phase near a response zero is noise); sign-aware linear fits; and optionally the autofocus cost curve. Batch, not interactive: every ring filters the whole volume, so one call takes about 15 minutes on a 768×768×112 grid regardless of how many voxels it is given.
+
+Ring width trades timing against spatial reach (real grid, measured $t(\mathbf{k})$): the median spread of acquisition times inside a ring is 3.1 / 1.4 / 0.7 ms for 4 / 8 / 16 rings, while the radius holding 90 % of a ring's PSF energy is 2.4 / 6.2 / 13.1 voxels. The main lobe stays 1–2 px either way; the side lobes are what grow.
 
 ## 8. Metrics (`metrics.py`)
 
@@ -148,6 +174,14 @@ R_{12} = -\sum h \log_2 h \quad(\text{gradient entropy, max } \log_2 n),\qquad R
 $$
 
 reported as ratios vs the original — $r_{12} = (R_{12}^{\max}-R_{12})/(R_{12}^{\max}-R_{12}^{\rm orig})$, $r_{13} = (R_{13}-R_{13}^{\min})/(R_{13}^{\rm orig}-R_{13}^{\min})$ — in 2D per slice and in 3D. They are gain-invariant and measure gradient *concentration*; a Gaussian blur of a noisy image raises both (it suppresses many small noise gradients more than the few coherent edge gradients), so they are an artifact-reading aid next to the image, not a sharpness score. Edge sharpness in our evaluation is the 10–90 % edge-spread width at edges fixed on a reference, with paired differences and bootstrap CIs (kept in the analysis repo, not here).
+
+### 8a. Edge width and the other sharpness measures (`edge_width.py`, `iqm.py`)
+
+The sharpness measure is the 10–90 % width of the edge-spread function (the ISO 12233 / Boreman quantity; the basis of the validated no-reference blur metrics of Marziliano 2002, Ferzli–Karam 2009 and Narvekar–Karam 2011). `edge_width.detect_edges` finds strong edges once on a reference volume (every 3rd slice, every 4th column, the row with the largest |d/drow|, top 1 % of the slice's gradients, ≥ 15 % contrast over 16 rows); `rise_at` measures the same 16-pixel profile on every method; `paired_table` gives the median of the per-edge differences with a bootstrap 95 % CI by |B0| bin. **Detect the edges on the uncorrected image**: detecting on a corrected image favours that method by 0.1–0.3 px at high |B0| (autofocus vs ring at 130–200 Hz reads +0.09 with edges on the ring, −0.46 with edges on the autofocus, −0.38 with edges on the uncorrected image). `python edge_width.py --orig volume.npy --results results [--b0map map.npy]` precomputes `results/edge_widths_neutral.npz`, which the viewer uses for the paired A-vs-B table (whole volume, and the zoom box on slices z±8). Single patches with 20–45 edges are too noisy to rank (±0.3–0.5 px): pool thousands of edges and stratify by |B0|.
+
+`iqm.py` computes, for a slice or a zoom box, the edge width and Lim et al.'s 2019 boundary score S = CNR / (20–80 % distance) on edges detected on the uncorrected slice, and the reference-free metrics of Marchetto & Eichhorn 2024 (Tenengrad TG, average edge strength AES at Canny edges, normalised gradient square = R13, gradient entropy, image entropy), gain-matched and percentile-normalised from the uncorrected slice inside the mask. Everything is shown in the viewer's metrics card; a single whole-volume number hides the local behaviour of off-resonance, so read the |B0|-binned rows and the chosen boxes.
+
+**Read these numbers with care.** Scored against cases with known answers (reconstructions confirmed as artifacts by eye, the uncorrected image, and blurred, unsharp-masked, shifted and noisy copies of the ring), the 10–90 % width measured against each profile's own minimum and maximum made 6 wrong calls out of 11, including calling a Gaussian blur sharper: normalising each profile by its own extremes lets a change in ringing move the width. None of 69 variants of AES, Tenengrad and Lim's score passed all the known-answer controls either. More robust: measure the skin as three separate quantities (outer rise, bright-band thickness, inner fall) against plateau levels fixed on the uncorrected image, and check images by eye.
 
 
 The 3D sample-time map for the 768×768×112 breast grid was resampled from the 256³ `time_kxyz.mat` in per-axis-normalised k (radial medians agree with the profile to 0.05 ms); the exact map should come from the scan's own `kacq_cone` trajectory files.

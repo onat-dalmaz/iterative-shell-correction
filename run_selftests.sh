@@ -5,3 +5,4 @@
 set -e
 python ring_b0_corr.py --selftest
 python time_seg_corr.py --selftest
+python autofocus_blend.py --selftest

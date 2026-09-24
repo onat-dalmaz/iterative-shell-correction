@@ -55,8 +55,17 @@ def main():
               f"gradient energy {c3['R13']:.3e} (×{rr3['r13']:.3f})", flush=True)
         del v
     out["_mask"] = args.mask or "otsu"
-    with open(os.path.join(args.results, "metrics.json"), "w") as fh:
-        json.dump(out, fh)
+    # merge into the existing file so entries written by other tools (e.g. compute_iqm_volume.py's
+    # "iqm_volume") survive a recompute
+    mp = os.path.join(args.results, "metrics.json")
+    old = json.load(open(mp)) if os.path.exists(mp) else {}
+    for k, v in out.items():
+        if isinstance(v, dict) and isinstance(old.get(k), dict):
+            old[k].update(v)
+        else:
+            old[k] = v
+    with open(mp, "w") as fh:
+        json.dump(old, fh)
     print(f"wrote {args.results}/metrics.json")
 
 

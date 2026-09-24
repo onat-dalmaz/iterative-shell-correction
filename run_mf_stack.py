@@ -29,9 +29,15 @@ def main():
     ap.add_argument("--fmin", type=float, default=-150); ap.add_argument("--fmax", type=float, default=150)
     ap.add_argument("--step", type=float, default=10)
     ap.add_argument("--complex", action="store_true", help="store complex64 instead of |image| float32")
+    ap.add_argument("--freqs", nargs="+", type=float, default=None, help="explicit frequency list (Hz); overrides fmin/fmax/step")
+    ap.add_argument("--merge", action="store_true", help="add to an existing stack: keep its files and union the frequency lists")
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
-    freqs = np.arange(args.fmin, args.fmax + 1e-6, args.step)
+    freqs = np.array(sorted(args.freqs), dtype=float) if args.freqs else np.arange(args.fmin, args.fmax + 1e-6, args.step)
+    old = None
+    if args.merge and os.path.exists(os.path.join(args.out, "freqs.json")):
+        old = json.load(open(os.path.join(args.out, "freqs.json")))
+        freqs = np.array([f for f in freqs if f"f{f:+04.0f}.npy" not in old["files"]], dtype=float)   # only the missing ones
     vol = np.asarray(np.load(args.orig, mmap_mode="r"))
     tmap = np.load(args.tmap)
     xyz = lambda a: np.ascontiguousarray(np.transpose(a, (1, 2, 0)))
@@ -49,8 +55,12 @@ def main():
         np.save(os.path.join(args.out, name), zxy(img).astype(np.complex64) if args.complex else np.abs(zxy(img)).astype(np.float32))
         names.append(name); del img
         print(f"  {f:+6.0f} Hz → {name}  ({time.time() - t1:.1f}s)", flush=True)
+    all_f, all_n = list(freqs), list(names)
+    if old is not None:
+        all_f += list(old["freqs_hz"]); all_n += list(old["files"])
+        order = np.argsort(all_f); all_f = [float(all_f[i]) for i in order]; all_n = [all_n[i] for i in order]
     with open(os.path.join(args.out, "freqs.json"), "w") as fh:
-        json.dump({"freqs_hz": freqs.tolist(), "files": names, "dtype": "complex64" if args.complex else "float32 magnitude",
+        json.dump({"freqs_hz": all_f, "files": all_n, "dtype": "complex64" if args.complex else "float32 magnitude",
                    "formula": "ift3(ft3(image) .* exp(2*pi*i*kxyz_time*f))  [freq_corr.m]"}, fh, indent=1)
     print(f"done in {time.time() - t0:.0f}s → {args.out}")
 

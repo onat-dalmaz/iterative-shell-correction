@@ -1,6 +1,15 @@
 # Iterative shell correction
 
 Off-resonance correction for center-out MRI without a separate field-map scan.
+
+**Phantom**
+
+![Phantom: uncorrected, iterative shell correction and measured-field CP reference](assets/phantom-example.png)
+
+**Breast patches**
+
+![Breast patches from central and inferior slices: uncorrected, iterative shell correction and measured-field CP reference](assets/breast-examples.png)
+
 Requires Python 3.10+, NumPy, SciPy and resvg_py.
 
 ```bash

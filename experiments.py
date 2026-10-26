@@ -47,6 +47,14 @@ def config(args):
                  update_cap_hz=60, final_shells=16)
     if settings.get('correction') != fixed:
         raise ValueError('Use the fixed abstract correction settings; no sweep options are implemented')
+    selected = getattr(args, 'case', None)
+    if selected is not None:
+        if args.action not in ('run', 'check'):
+            raise ValueError('--case is supported only for run and check, not cohort scoring')
+        cases = [case for case in settings['cases'] if case['id'] == selected]
+        if len(cases) != 1:
+            raise ValueError(f'--case must match exactly one configured case: {selected}')
+        settings = dict(settings, cases=cases)
     return settings
 
 
@@ -169,6 +177,7 @@ def main():
     parser.add_argument('workflow', choices=('phantom', 'volunteers'))
     parser.add_argument('--inputs', type=Path, required=True)
     parser.add_argument('--data', type=Path, required=True)
+    parser.add_argument('--case', metavar='ID', help='Run or check one case from the full frozen manifest')
     parser.add_argument('--results', type=Path, help='Saved correction output directory for scoring')
     parser.add_argument('--out', type=Path)
     args = parser.parse_args()

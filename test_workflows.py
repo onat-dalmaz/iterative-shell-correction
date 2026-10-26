@@ -1,4 +1,6 @@
+import argparse
 import hashlib
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -6,10 +8,58 @@ from pathlib import Path
 import numpy as np
 
 from evaluate import image_metrics, magnitude_gain, mean_field_bins
-from experiments import load_array
+from experiments import config, load_array
 
 
 class WorkflowTests(unittest.TestCase):
+    def manifest_config(self, action, selected=None, workflow='volunteers', count=None,
+                        cap=60, duplicate_id=False):
+        ids = [f'S{i:02}' for i in range(1, 6)] if workflow == 'volunteers' else [
+            'standard_autoshim', 'modified_x', 'modified_y']
+        if count is not None:
+            ids = ids[:count]
+        if duplicate_id:
+            ids[-1] = ids[0]
+        settings = dict(kind=workflow, cases=[dict(id=case) for case in ids],
+                        correction=dict(shells=16, shell_spacing_ms=.6, updates=3,
+                                        update_cap_hz=cap, final_shells=16))
+        with tempfile.TemporaryDirectory() as directory:
+            file = Path(directory) / 'inputs.json'
+            file.write_text(json.dumps(settings))
+            args = argparse.Namespace(inputs=file, workflow=workflow, action=action, case=selected)
+            result = config(args)
+            self.assertEqual(json.loads(file.read_text()), settings)
+        return result
+
+    def test_case_selector_retains_full_default_and_selects_run_or_check(self):
+        self.assertEqual(len(self.manifest_config('run')['cases']), 5)
+        self.assertEqual(len(self.manifest_config('check', workflow='phantom')['cases']), 3)
+        for action in ('run', 'check'):
+            with self.subTest(action=action):
+                self.assertEqual(self.manifest_config(action, 'S03')['cases'], [dict(id='S03')])
+                self.assertEqual(self.manifest_config(action, 'standard_autoshim', 'phantom')['cases'],
+                                 [dict(id='standard_autoshim')])
+
+    def test_case_selector_does_not_bypass_full_manifest_validation(self):
+        with self.assertRaisesRegex(ValueError, 'requires 5 fixed cases'):
+            self.manifest_config('run', 'S01', count=1)
+        with self.assertRaisesRegex(ValueError, 'fixed abstract correction settings'):
+            self.manifest_config('check', 'S03', cap=120)
+
+    def test_case_selector_is_rejected_for_cohort_scoring(self):
+        self.assertEqual(len(self.manifest_config('score')['cases']), 5)
+        self.assertEqual(len(self.manifest_config('score', workflow='phantom')['cases']), 3)
+        for workflow, selected in [('volunteers', 'S03'), ('phantom', 'standard_autoshim')]:
+            with self.subTest(workflow=workflow):
+                with self.assertRaisesRegex(ValueError, 'not cohort scoring'):
+                    self.manifest_config('score', selected, workflow)
+
+    def test_case_selector_requires_one_exact_id(self):
+        with self.assertRaisesRegex(ValueError, 'exactly one configured case'):
+            self.manifest_config('run', 'S3')
+        with self.assertRaisesRegex(ValueError, 'exactly one configured case'):
+            self.manifest_config('check', 'S01', duplicate_id=True)
+
     def test_signed_volunteer_errors_cancel_before_absolute_value(self):
         volunteers = []
         for value in (-100.0, 50.0, 50.0, 0.0, 0.0):

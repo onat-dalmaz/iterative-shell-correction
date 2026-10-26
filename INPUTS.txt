@@ -1,8 +1,9 @@
-Private inputs
+Inputs
 
 The manifests name the exact three phantom conditions and five volunteer cases.
-Resolve their relative filenames under --data. MRI arrays and masks are not
-distributed. Known source SHA-256 values are checked before loading.
+Resolve their relative filenames under --data. The release examples provide
+standard_autoshim and S03; the other cases and saved image tiles are not included.
+Known source SHA-256 values are checked before loading.
 
 volume.npy and the saved measured-field CP reference are complex64 [z,x,y].
 The public slice axes are [z,row,column]; no transpose or flip is applied.
@@ -37,3 +38,8 @@ support and crops. The SVG templates contain no MRI images. Figure locations
 and display windows are in settings/figure_locations.json. Plotting does not
 choose new patches or alter data. A rerun Figure 4 can use --scores with the
 figure4.json produced by the scoring command.
+
+Example ZIPs include their own manifests. These retain the complete cohort recipe
+so --case can select the supplied case. The S03 example ROI archive contains only
+the numeric mask, with exactly the original voxels; its container checksum differs
+from the original archive. The canonical settings/ manifests remain unchanged.

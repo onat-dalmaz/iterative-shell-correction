@@ -17,25 +17,37 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-The manifests in `settings/` describe the three phantom conditions and five
-volunteers. Supply coil-combined, gridded complex `.npy` volumes as `[z, x, y]`,
-timing in seconds on the same centered k-space grid, and measured fields in Hz.
-Voxel spacings are in millimetres. Scoring also needs the fixed private masks
-and saved measured-field CP references listed in each manifest.
+Inputs are coil-combined, gridded complex `.npy` volumes `[z, x, y]`, timing in
+seconds on the same centered k-space grid, and measured fields in Hz. Voxel
+spacings are in millimetres. Scoring uses fixed masks and saved measured-field CP
+references; see `INPUTS.txt`.
+
+[Example downloads](https://github.com/onat-dalmaz/iterative-shell-correction/releases/tag/ismrm-example-data-v1)
+provide the standard-autoshim phantom and volunteer S03. Download both ZIPs into
+`example-data/`, then extract them there. Use their bundled manifests:
 
 ```bash
-python experiments.py run phantom --inputs settings/phantom.json --data /path/to/private --out outputs/phantom
-python experiments.py score phantom --inputs settings/phantom.json --data /path/to/private --results outputs/phantom --out outputs/phantom_scores
-python experiments.py run volunteers --inputs settings/volunteers.json --data /path/to/private --out outputs/volunteers
-python experiments.py score volunteers --inputs settings/volunteers.json --data /path/to/private --results outputs/volunteers --out outputs/scores
-python plot_figures.py --figures 4 --out outputs/figures
-python plot_figures.py --figures 2 3 5 --assets /path/to/private_plot_assets --out outputs/figures
+python -m zipfile -e example-data/example-phantom-standard.zip example-data
+python -m zipfile -e example-data/example-volunteer-S03.zip example-data
+python experiments.py run phantom --inputs example-data/phantom.json --data example-data --case standard_autoshim --out outputs/phantom-example
+python experiments.py run volunteers --inputs example-data/volunteers.json --data example-data --case S03 --out outputs/volunteer-example
 ```
 
-Runs write complex corrected volumes, field maps and settings to the requested
-directory. Figure 4 can be replotted from the included scalar results; the image
-figures need private plotting assets. Scan data, image patches and masks are not
-distributed here.
+The complete comparisons use three phantom conditions and five volunteers. Their
+remaining scan arrays and prepared image tiles are not included:
+
+```bash
+python experiments.py run phantom --inputs settings/phantom.json --data /path/to/data --out outputs/phantom
+python experiments.py score phantom --inputs settings/phantom.json --data /path/to/data --results outputs/phantom --out outputs/phantom_scores
+python experiments.py run volunteers --inputs settings/volunteers.json --data /path/to/data --out outputs/volunteers
+python experiments.py score volunteers --inputs settings/volunteers.json --data /path/to/data --results outputs/volunteers --out outputs/scores
+python plot_figures.py --figures 4 --out outputs/figures
+python plot_figures.py --figures 2 3 5 --assets /path/to/saved_tiles --out outputs/figures
+```
+
+Runs write corrected complex volumes, fields and settings under `--out`. Figure 4
+plots the included scalar results without scan data. Full-cohort scoring requires
+all cases; `--case` selects only a correction or input check.
 
 The phase-tracking step builds on Brian Hargreaves' [hierarchical shell
 correction](https://github.com/mribri999/timesegmentedphase).

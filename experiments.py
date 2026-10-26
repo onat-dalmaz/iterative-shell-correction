@@ -13,7 +13,7 @@ from evaluate import (field_bins, field_support, image_metrics, magnitude,
 def load_array(record, directory):
     path = directory / record['file']
     if not path.is_file():
-        raise FileNotFoundError(f'Private input is not distributed: {path}')
+        raise FileNotFoundError(f'Required input is missing: {path}')
     if record.get('sha256'):
         digest = hashlib.sha256()
         with path.open('rb') as stream:
@@ -184,7 +184,7 @@ def main():
     settings = config(args)
     if args.action == 'check':
         check_inputs(settings, args.data, scoring=True)
-        print('Private input geometry and configured file hashes match')
+        print('Input geometry and configured file hashes match')
     elif args.action == 'run':
         if args.out is None:
             parser.error('--out is required')

@@ -1,0 +1,240 @@
+{
+  "indexing": "zero-based z,row,column, half-open bounds; no transpose/flip",
+  "figure3": [
+    {
+      "panel": "A",
+      "subject": 1,
+      "z": 72,
+      "bounds_row_col_halfopen": [
+        317,
+        407,
+        495,
+        585
+      ],
+      "window": [
+        0.1631454112380743,
+        92.20697132110597
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "A",
+      "subject": 2,
+      "z": 48,
+      "bounds_row_col_halfopen": [
+        305,
+        395,
+        120,
+        210
+      ],
+      "window": [
+        4.965174881021994e-07,
+        0.00026270932707120727
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "A",
+      "subject": 3,
+      "z": 60,
+      "bounds_row_col_halfopen": [
+        345,
+        435,
+        455,
+        545
+      ],
+      "window": [
+        2.891098456827852e-13,
+        0.00018924805233837107
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "A",
+      "subject": 4,
+      "z": 48,
+      "bounds_row_col_halfopen": [
+        255,
+        345,
+        230,
+        320
+      ],
+      "window": [
+        0.04727443847805262,
+        51.78004455566406
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "A",
+      "subject": 5,
+      "z": 66,
+      "bounds_row_col_halfopen": [
+        250,
+        340,
+        490,
+        580
+      ],
+      "window": [
+        6.182794226106126e-07,
+        0.00017585051718924666
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "B",
+      "subject": 1,
+      "z": 29,
+      "bounds_row_col_halfopen": [
+        309,
+        399,
+        193,
+        283
+      ],
+      "window": [
+        1.0163681507110596,
+        105.79620361328125
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "B",
+      "subject": 2,
+      "z": 26,
+      "bounds_row_col_halfopen": [
+        375,
+        465,
+        555,
+        645
+      ],
+      "window": [
+        1.4944547729101032e-05,
+        0.00017454846238251776
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "B",
+      "subject": 3,
+      "z": 28,
+      "bounds_row_col_halfopen": [
+        371,
+        461,
+        176,
+        266
+      ],
+      "window": [
+        2.669396508281352e-06,
+        0.00016472151037305593
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "B",
+      "subject": 4,
+      "z": 38,
+      "bounds_row_col_halfopen": [
+        301,
+        391,
+        173,
+        263
+      ],
+      "window": [
+        0.8937406539916992,
+        51.03850555419922
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    },
+    {
+      "panel": "B",
+      "subject": 5,
+      "z": 29,
+      "bounds_row_col_halfopen": [
+        240,
+        330,
+        195,
+        285
+      ],
+      "window": [
+        2.392536771367304e-06,
+        0.00026923921541310847
+      ],
+      "patch_pixels": [
+        90,
+        90
+      ]
+    }
+  ],
+  "figure5": {
+    "A": {
+      "subject": 3,
+      "z": 17,
+      "bounds_row_col_halfopen": [
+        483,
+        573,
+        613,
+        703
+      ],
+      "window": [
+        1.361292561909977e-06,
+        9.787011593289208e-05
+      ]
+    },
+    "B": {
+      "subject": 4,
+      "z": 26,
+      "bounds_row_col_halfopen": [
+        296,
+        386,
+        486,
+        576
+      ],
+      "window": [
+        1.1534469026327132,
+        55.193937091827394
+      ]
+    },
+    "field_range_hz": [
+      -300,
+      300
+    ],
+    "estimated_field_filter": {
+      "size_zxy": [
+        4,
+        3,
+        3
+      ],
+      "mode": "nearest",
+      "origin": 0
+    },
+    "isc_field": "accumulated_CP",
+    "difference_rows": false
+  }
+}

@@ -1,0 +1,3021 @@
+{
+  "A_case_order": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05"
+  ],
+  "A_method_order": [
+    "uncorrected",
+    "autofocus",
+    "isc"
+  ],
+  "A_subject_rows": [
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "uncorrected",
+      "metric": "psnr",
+      "value": 32.198560196538
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "uncorrected",
+      "metric": "psnr",
+      "value": 31.463173698265603
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "uncorrected",
+      "metric": "psnr",
+      "value": 29.676865990984645
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "uncorrected",
+      "metric": "psnr",
+      "value": 29.86262052502997
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "uncorrected",
+      "metric": "psnr",
+      "value": 30.976656880946734
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "uncorrected",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.8180446952577685
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "uncorrected",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.8464732038129229
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "uncorrected",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.799807891087547
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "uncorrected",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.7954749855362082
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "uncorrected",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.8330426493165141
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "uncorrected",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.27624123531146144
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "uncorrected",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.25489379138950574
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "uncorrected",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.24893945102909373
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "uncorrected",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.41466094881987414
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "uncorrected",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.38550724256061336
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "autofocus",
+      "metric": "psnr",
+      "value": 33.82000641896768
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "autofocus",
+      "metric": "psnr",
+      "value": 33.80382258528099
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "autofocus",
+      "metric": "psnr",
+      "value": 34.64161499181915
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "autofocus",
+      "metric": "psnr",
+      "value": 31.209846904482767
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "autofocus",
+      "metric": "psnr",
+      "value": 31.07728146575309
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "autofocus",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.8443261667808296
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "autofocus",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.903901747846248
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "autofocus",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.9029158886065657
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "autofocus",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.8258546972143466
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "autofocus",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.8529421485568368
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "autofocus",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.21608817846989337
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "autofocus",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.1890624903718009
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "autofocus",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.13336140831693957
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "autofocus",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.33843649288951033
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "autofocus",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.375371508122565
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "isc",
+      "metric": "psnr",
+      "value": 34.37532660226179
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "isc",
+      "metric": "psnr",
+      "value": 34.53334044250373
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "isc",
+      "metric": "psnr",
+      "value": 35.25384635654187
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "isc",
+      "metric": "psnr",
+      "value": 32.54179360755553
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "isc",
+      "metric": "psnr",
+      "value": 34.40349999162105
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "isc",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.8569192528300876
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "isc",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.9132150975364314
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "isc",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.909601175264521
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "isc",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.851747680077934
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "isc",
+      "metric": "ssim_3d_sigma1p5mm",
+      "value": 0.9026146805537721
+    },
+    {
+      "subject": 1,
+      "case_id": "S01",
+      "method": "isc",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.17501991967896596
+    },
+    {
+      "subject": 2,
+      "case_id": "S02",
+      "method": "isc",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.16706569746987482
+    },
+    {
+      "subject": 3,
+      "case_id": "S03",
+      "method": "isc",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.11230750138785414
+    },
+    {
+      "subject": 4,
+      "case_id": "S04",
+      "method": "isc",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.2682938046979254
+    },
+    {
+      "subject": 5,
+      "case_id": "S05",
+      "method": "isc",
+      "metric": "hfen_3d_sigma1p5mm",
+      "value": 0.21647358582666112
+    }
+  ],
+  "A_equal_volunteer_means": [
+    {
+      "method": "uncorrected",
+      "metric": "psnr",
+      "equal_volunteer_mean": 30.83557545835299
+    },
+    {
+      "method": "uncorrected",
+      "metric": "ssim_3d_sigma1p5mm",
+      "equal_volunteer_mean": 0.8185686850021922
+    },
+    {
+      "method": "uncorrected",
+      "metric": "hfen_3d_sigma1p5mm",
+      "equal_volunteer_mean": 0.3160485338221097
+    },
+    {
+      "method": "autofocus",
+      "metric": "psnr",
+      "equal_volunteer_mean": 32.91051447326073
+    },
+    {
+      "method": "autofocus",
+      "metric": "ssim_3d_sigma1p5mm",
+      "equal_volunteer_mean": 0.8659881298009653
+    },
+    {
+      "method": "autofocus",
+      "metric": "hfen_3d_sigma1p5mm",
+      "equal_volunteer_mean": 0.25046401563414183
+    },
+    {
+      "method": "isc",
+      "metric": "psnr",
+      "equal_volunteer_mean": 34.221561400096796
+    },
+    {
+      "method": "isc",
+      "metric": "ssim_3d_sigma1p5mm",
+      "equal_volunteer_mean": 0.8868195772525492
+    },
+    {
+      "method": "isc",
+      "metric": "hfen_3d_sigma1p5mm",
+      "equal_volunteer_mean": 0.1878321018122563
+    }
+  ],
+  "B_points": [
+    {
+      "bin_lo_hz": 0.0,
+      "bin_hi_hz": 5.0,
+      "x_hz": 2.5,
+      "signed_mean_hz": -2.489714363059611,
+      "volunteer_means_hz": [
+        -2.4918678201342446,
+        -2.482668274192429,
+        -2.4929379252963244,
+        -2.5017802820002704,
+        -2.4793175136747867
+      ],
+      "counts": [
+        19214,
+        28955,
+        12347,
+        31185,
+        63153
+      ],
+      "absolute_mean_signed_disagreement_hz": 2.489714363059611,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 5.0,
+      "bin_hi_hz": 10.0,
+      "x_hz": 7.5,
+      "signed_mean_hz": -7.505970877210894,
+      "volunteer_means_hz": [
+        -7.547746176640993,
+        -7.485084288448146,
+        -7.56298739892216,
+        -7.484690001140311,
+        -7.449346520902855
+      ],
+      "counts": [
+        19577,
+        27843,
+        13046,
+        31908,
+        58228
+      ],
+      "absolute_mean_signed_disagreement_hz": 7.505970877210894,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 10.0,
+      "bin_hi_hz": 15.0,
+      "x_hz": 12.5,
+      "signed_mean_hz": -12.512344739695056,
+      "volunteer_means_hz": [
+        -12.51396836979951,
+        -12.525414986395145,
+        -12.542751555913679,
+        -12.507508718400064,
+        -12.472080067966882
+      ],
+      "counts": [
+        20756,
+        28331,
+        14380,
+        31264,
+        52950
+      ],
+      "absolute_mean_signed_disagreement_hz": 12.512344739695056,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 15.0,
+      "bin_hi_hz": 20.0,
+      "x_hz": 17.5,
+      "signed_mean_hz": -17.501814527748724,
+      "volunteer_means_hz": [
+        -17.524171147215934,
+        -17.513065233788556,
+        -17.504453930338943,
+        -17.507927525678884,
+        -17.45945480172131
+      ],
+      "counts": [
+        21986,
+        29347,
+        14568,
+        31763,
+        49610
+      ],
+      "absolute_mean_signed_disagreement_hz": 17.501814527748724,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 20.0,
+      "bin_hi_hz": 25.0,
+      "x_hz": 22.5,
+      "signed_mean_hz": -22.500685360097094,
+      "volunteer_means_hz": [
+        -22.524059105772743,
+        -22.507567795206583,
+        -22.490533253180974,
+        -22.505643950637687,
+        -22.47562269568747
+      ],
+      "counts": [
+        23917,
+        30309,
+        15032,
+        32073,
+        47128
+      ],
+      "absolute_mean_signed_disagreement_hz": 22.500685360097094,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 25.0,
+      "bin_hi_hz": 30.0,
+      "x_hz": 27.5,
+      "signed_mean_hz": -27.4949628896559,
+      "volunteer_means_hz": [
+        -27.47946168945482,
+        -27.49819667460684,
+        -27.511852166591545,
+        -27.48757265865152,
+        -27.497731258974774
+      ],
+      "counts": [
+        24119,
+        31217,
+        15678,
+        31140,
+        45447
+      ],
+      "absolute_mean_signed_disagreement_hz": 27.4949628896559,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 30.0,
+      "bin_hi_hz": 35.0,
+      "x_hz": 32.5,
+      "signed_mean_hz": -32.49866227061284,
+      "volunteer_means_hz": [
+        -32.49363158247625,
+        -32.48786207077521,
+        -32.55994426580453,
+        -32.48093639520595,
+        -32.47093703880229
+      ],
+      "counts": [
+        22682,
+        30624,
+        16782,
+        30348,
+        43723
+      ],
+      "absolute_mean_signed_disagreement_hz": 32.49866227061284,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 35.0,
+      "bin_hi_hz": 40.0,
+      "x_hz": 37.5,
+      "signed_mean_hz": -37.48846367969019,
+      "volunteer_means_hz": [
+        -37.51955193809078,
+        -37.502331105236095,
+        -37.4805517073486,
+        -37.47360297357967,
+        -37.46628067419581
+      ],
+      "counts": [
+        22830,
+        30158,
+        17731,
+        28234,
+        40932
+      ],
+      "absolute_mean_signed_disagreement_hz": 37.48846367969019,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 40.0,
+      "bin_hi_hz": 45.0,
+      "x_hz": 42.5,
+      "signed_mean_hz": -42.4845279159788,
+      "volunteer_means_hz": [
+        -42.489876055411194,
+        -42.484181449067016,
+        -42.49690145358185,
+        -42.46963318800953,
+        -42.48204743382439
+      ],
+      "counts": [
+        23198,
+        29234,
+        17701,
+        26830,
+        38468
+      ],
+      "absolute_mean_signed_disagreement_hz": 42.4845279159788,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 45.0,
+      "bin_hi_hz": 50.0,
+      "x_hz": 47.5,
+      "signed_mean_hz": -47.4764097453568,
+      "volunteer_means_hz": [
+        -47.43150529930468,
+        -47.4864806075727,
+        -47.50262707903382,
+        -47.46826630476245,
+        -47.49316943611028
+      ],
+      "counts": [
+        20174,
+        27890,
+        17141,
+        25505,
+        36999
+      ],
+      "absolute_mean_signed_disagreement_hz": 47.4764097453568,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 50.0,
+      "bin_hi_hz": 55.0,
+      "x_hz": 52.5,
+      "signed_mean_hz": -52.46850796858381,
+      "volunteer_means_hz": [
+        -52.433152850775286,
+        -52.46111263787767,
+        -52.51313874044696,
+        -52.46923821777247,
+        -52.46589739604663
+      ],
+      "counts": [
+        17797,
+        25785,
+        17634,
+        23978,
+        35340
+      ],
+      "absolute_mean_signed_disagreement_hz": 52.46850796858381,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 55.0,
+      "bin_hi_hz": 60.0,
+      "x_hz": 57.5,
+      "signed_mean_hz": -57.470120398344385,
+      "volunteer_means_hz": [
+        -57.469213293420495,
+        -57.43401931608148,
+        -57.525530676625756,
+        -57.481785096365876,
+        -57.440053609228315
+      ],
+      "counts": [
+        15870,
+        22116,
+        19053,
+        22987,
+        31640
+      ],
+      "absolute_mean_signed_disagreement_hz": 57.470120398344385,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 60.0,
+      "bin_hi_hz": 65.0,
+      "x_hz": 62.5,
+      "signed_mean_hz": -62.47727351998729,
+      "volunteer_means_hz": [
+        -62.47590586915814,
+        -62.45970117192332,
+        -62.50665687766612,
+        -62.491573515295435,
+        -62.45253016589347
+      ],
+      "counts": [
+        14776,
+        20211,
+        19855,
+        22461,
+        28330
+      ],
+      "absolute_mean_signed_disagreement_hz": 62.47727351998729,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 65.0,
+      "bin_hi_hz": 70.0,
+      "x_hz": 67.5,
+      "signed_mean_hz": -67.48338957312774,
+      "volunteer_means_hz": [
+        -67.48568072388431,
+        -67.47936479241352,
+        -67.49912480638089,
+        -67.48694100642425,
+        -67.46583653653566
+      ],
+      "counts": [
+        14085,
+        18926,
+        19831,
+        21273,
+        25712
+      ],
+      "absolute_mean_signed_disagreement_hz": 67.48338957312774,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 70.0,
+      "bin_hi_hz": 75.0,
+      "x_hz": 72.5,
+      "signed_mean_hz": -72.4683518650373,
+      "volunteer_means_hz": [
+        -72.47287616913307,
+        -72.46126520566129,
+        -72.44233485994351,
+        -72.45042642847555,
+        -72.5148566619731
+      ],
+      "counts": [
+        13819,
+        17290,
+        19475,
+        19646,
+        24494
+      ],
+      "absolute_mean_signed_disagreement_hz": 72.4683518650373,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 75.0,
+      "bin_hi_hz": 80.0,
+      "x_hz": 77.5,
+      "signed_mean_hz": -77.44673812882124,
+      "volunteer_means_hz": [
+        -77.47308503788565,
+        -77.42803901691714,
+        -77.47242497570205,
+        -77.41940351842379,
+        -77.44073809517755
+      ],
+      "counts": [
+        12945,
+        15377,
+        17976,
+        17372,
+        23040
+      ],
+      "absolute_mean_signed_disagreement_hz": 77.44673812882124,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 80.0,
+      "bin_hi_hz": 85.0,
+      "x_hz": 82.5,
+      "signed_mean_hz": -82.45948042266721,
+      "volunteer_means_hz": [
+        -82.5053909950138,
+        -82.43919288770645,
+        -82.46879709979771,
+        -82.45653503536302,
+        -82.42748609545511
+      ],
+      "counts": [
+        12567,
+        12848,
+        17358,
+        14958,
+        19331
+      ],
+      "absolute_mean_signed_disagreement_hz": 82.45948042266721,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 85.0,
+      "bin_hi_hz": 90.0,
+      "x_hz": 87.5,
+      "signed_mean_hz": -87.46881804420713,
+      "volunteer_means_hz": [
+        -87.51652348267436,
+        -87.45271443332263,
+        -87.44796966992536,
+        -87.47029344933466,
+        -87.45658918577858
+      ],
+      "counts": [
+        12876,
+        11337,
+        15682,
+        13172,
+        17175
+      ],
+      "absolute_mean_signed_disagreement_hz": 87.46881804420713,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 90.0,
+      "bin_hi_hz": 95.0,
+      "x_hz": 92.5,
+      "signed_mean_hz": -92.45005444112084,
+      "volunteer_means_hz": [
+        -92.47249588573334,
+        -92.45550536366059,
+        -92.41221191177524,
+        -92.4438037177657,
+        -92.46625532666928
+      ],
+      "counts": [
+        12302,
+        10264,
+        13209,
+        12246,
+        15734
+      ],
+      "absolute_mean_signed_disagreement_hz": 92.45005444112084,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 95.0,
+      "bin_hi_hz": 100.0,
+      "x_hz": 97.5,
+      "signed_mean_hz": -97.45317499071027,
+      "volunteer_means_hz": [
+        -97.47722102338739,
+        -97.46070373367725,
+        -97.41887258096251,
+        -97.46077118264209,
+        -97.44830643288215
+      ],
+      "counts": [
+        12141,
+        9478,
+        11310,
+        11080,
+        14376
+      ],
+      "absolute_mean_signed_disagreement_hz": 97.45317499071027,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 100.0,
+      "bin_hi_hz": 105.0,
+      "x_hz": 102.5,
+      "signed_mean_hz": -102.46965425009812,
+      "volunteer_means_hz": [
+        -102.48189696091771,
+        -102.4661239275767,
+        -102.4517832067812,
+        -102.46592846408615,
+        -102.48253869112887
+      ],
+      "counts": [
+        11569,
+        8281,
+        9916,
+        10470,
+        13070
+      ],
+      "absolute_mean_signed_disagreement_hz": 102.46965425009812,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 105.0,
+      "bin_hi_hz": 110.0,
+      "x_hz": 107.5,
+      "signed_mean_hz": -107.47113288689468,
+      "volunteer_means_hz": [
+        -107.49699599915756,
+        -107.45539323069505,
+        -107.46546052527337,
+        -107.4741360792634,
+        -107.46367860008401
+      ],
+      "counts": [
+        11144,
+        7694,
+        9245,
+        9911,
+        12488
+      ],
+      "absolute_mean_signed_disagreement_hz": 107.47113288689468,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 110.0,
+      "bin_hi_hz": 115.0,
+      "x_hz": 112.5,
+      "signed_mean_hz": -112.47247163310567,
+      "volunteer_means_hz": [
+        -112.49324071396596,
+        -112.45482295780155,
+        -112.47512817820228,
+        -112.47118863882262,
+        -112.46797767673587
+      ],
+      "counts": [
+        11118,
+        7090,
+        8721,
+        9150,
+        11524
+      ],
+      "absolute_mean_signed_disagreement_hz": 112.47247163310567,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 115.0,
+      "bin_hi_hz": 120.0,
+      "x_hz": 117.5,
+      "signed_mean_hz": -117.49357149985397,
+      "volunteer_means_hz": [
+        -117.5456806627568,
+        -117.50274624361667,
+        -117.47566654296354,
+        -117.46954555772389,
+        -117.47421849220895
+      ],
+      "counts": [
+        11546,
+        6583,
+        8423,
+        8553,
+        10749
+      ],
+      "absolute_mean_signed_disagreement_hz": 117.49357149985397,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 120.0,
+      "bin_hi_hz": 125.0,
+      "x_hz": 122.5,
+      "signed_mean_hz": -122.49854558452277,
+      "volunteer_means_hz": [
+        -122.5853034270832,
+        -122.46267908663329,
+        -122.48201245885546,
+        -122.49056731125404,
+        -122.47216563878791
+      ],
+      "counts": [
+        12710,
+        5991,
+        8166,
+        7975,
+        10069
+      ],
+      "absolute_mean_signed_disagreement_hz": 122.49854558452277,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 125.0,
+      "bin_hi_hz": 130.0,
+      "x_hz": 127.5,
+      "signed_mean_hz": -127.4816350921072,
+      "volunteer_means_hz": [
+        -127.41516926907434,
+        -127.51232015970959,
+        -127.49988373706532,
+        -127.49082962145768,
+        -127.48997267322899
+      ],
+      "counts": [
+        10988,
+        5877,
+        7935,
+        7794,
+        9580
+      ],
+      "absolute_mean_signed_disagreement_hz": 127.4816350921072,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 130.0,
+      "bin_hi_hz": 135.0,
+      "x_hz": 132.5,
+      "signed_mean_hz": -132.42719088544519,
+      "volunteer_means_hz": [
+        -132.24719894471974,
+        -132.49465697594815,
+        -132.40709372768882,
+        -132.51707549245734,
+        -132.46992928641183
+      ],
+      "counts": [
+        8262,
+        6034,
+        7140,
+        7600,
+        9156
+      ],
+      "absolute_mean_signed_disagreement_hz": 132.42719088544519,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 135.0,
+      "bin_hi_hz": 140.0,
+      "x_hz": 137.5,
+      "signed_mean_hz": -137.4230249915269,
+      "volunteer_means_hz": [
+        -137.29484006363006,
+        -137.4872473377722,
+        -137.4526851666984,
+        -137.43862549822433,
+        -137.44172689130932
+      ],
+      "counts": [
+        4931,
+        6020,
+        5900,
+        7182,
+        8414
+      ],
+      "absolute_mean_signed_disagreement_hz": 137.4230249915269,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 140.0,
+      "bin_hi_hz": 145.0,
+      "x_hz": 142.5,
+      "signed_mean_hz": -142.43482324383575,
+      "volunteer_means_hz": [
+        -142.43321056889553,
+        -142.35401747512267,
+        -142.46522303989954,
+        -142.42320860448962,
+        -142.49845653077122
+      ],
+      "counts": [
+        3825,
+        5544,
+        5362,
+        6472,
+        7716
+      ],
+      "absolute_mean_signed_disagreement_hz": 142.43482324383575,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 145.0,
+      "bin_hi_hz": 150.0,
+      "x_hz": 147.5,
+      "signed_mean_hz": -147.44452404903933,
+      "volunteer_means_hz": [
+        -147.48391631010355,
+        -147.4356086703414,
+        -147.34933059299993,
+        -147.46023986046745,
+        -147.49352481128437
+      ],
+      "counts": [
+        3509,
+        4155,
+        4122,
+        5789,
+        7361
+      ],
+      "absolute_mean_signed_disagreement_hz": 147.44452404903933,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 150.0,
+      "bin_hi_hz": 155.0,
+      "x_hz": 152.5,
+      "signed_mean_hz": -152.42728990915202,
+      "volunteer_means_hz": [
+        -152.4653302918815,
+        -152.309695419061,
+        -152.4237952326784,
+        -152.44840083247158,
+        -152.48922776966765
+      ],
+      "counts": [
+        3202,
+        2558,
+        3232,
+        5192,
+        7296
+      ],
+      "absolute_mean_signed_disagreement_hz": 152.42728990915202,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 155.0,
+      "bin_hi_hz": 160.0,
+      "x_hz": 157.5,
+      "signed_mean_hz": -157.46456162271897,
+      "volunteer_means_hz": [
+        -157.4605550582087,
+        -157.4134553992996,
+        -157.44220791956423,
+        -157.48125248787386,
+        -157.5253372486484
+      ],
+      "counts": [
+        2904,
+        1732,
+        2826,
+        4768,
+        7523
+      ],
+      "absolute_mean_signed_disagreement_hz": 157.46456162271897,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 160.0,
+      "bin_hi_hz": 165.0,
+      "x_hz": 162.5,
+      "signed_mean_hz": -162.4464026508793,
+      "volunteer_means_hz": [
+        -162.4972829030392,
+        -162.44347744093415,
+        -162.38760730815716,
+        -162.4698235147573,
+        -162.43382208750856
+      ],
+      "counts": [
+        2734,
+        1448,
+        2163,
+        4530,
+        7793
+      ],
+      "absolute_mean_signed_disagreement_hz": 162.4464026508793,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 165.0,
+      "bin_hi_hz": 170.0,
+      "x_hz": 167.5,
+      "signed_mean_hz": -167.4197518839827,
+      "volunteer_means_hz": [
+        -167.3919668723279,
+        -167.48888775790618,
+        -167.3787112839878,
+        -167.44406545969045,
+        -167.39512804600125
+      ],
+      "counts": [
+        2286,
+        1449,
+        1603,
+        4329,
+        6298
+      ],
+      "absolute_mean_signed_disagreement_hz": 167.4197518839827,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 170.0,
+      "bin_hi_hz": 175.0,
+      "x_hz": 172.5,
+      "signed_mean_hz": -172.4351752705354,
+      "volunteer_means_hz": [
+        -172.44232197584608,
+        -172.44530560858388,
+        -172.31151272295546,
+        -172.49302759937856,
+        -172.48370844591292
+      ],
+      "counts": [
+        1768,
+        1406,
+        1051,
+        4176,
+        5595
+      ],
+      "absolute_mean_signed_disagreement_hz": 172.4351752705354,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 175.0,
+      "bin_hi_hz": 180.0,
+      "x_hz": 177.5,
+      "signed_mean_hz": -177.4568175537916,
+      "volunteer_means_hz": [
+        -177.4265536942844,
+        -177.52019962542886,
+        -177.3955881824232,
+        -177.47521969373906,
+        -177.4665265730824
+      ],
+      "counts": [
+        1554,
+        1282,
+        584,
+        3719,
+        5177
+      ],
+      "absolute_mean_signed_disagreement_hz": 177.4568175537916,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 180.0,
+      "bin_hi_hz": 185.0,
+      "x_hz": 182.5,
+      "signed_mean_hz": -182.45215145198273,
+      "volunteer_means_hz": [
+        -182.4079242890785,
+        -182.4943446615747,
+        -182.46145417955188,
+        -182.4425060712888,
+        -182.45452805841987
+      ],
+      "counts": [
+        1282,
+        1189,
+        504,
+        3428,
+        4841
+      ],
+      "absolute_mean_signed_disagreement_hz": 182.45215145198273,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 185.0,
+      "bin_hi_hz": 190.0,
+      "x_hz": 187.5,
+      "signed_mean_hz": -187.41065268559345,
+      "volunteer_means_hz": [
+        -187.27319212822576,
+        -187.46242269326763,
+        -187.38495242595673,
+        -187.45923401594237,
+        -187.47346216457484
+      ],
+      "counts": [
+        818,
+        1139,
+        384,
+        3157,
+        4483
+      ],
+      "absolute_mean_signed_disagreement_hz": 187.41065268559345,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 190.0,
+      "bin_hi_hz": 195.0,
+      "x_hz": 192.5,
+      "signed_mean_hz": -192.4066732603285,
+      "volunteer_means_hz": [
+        -192.42994663383388,
+        -192.40878446238256,
+        -192.2626994562606,
+        -192.4697450023073,
+        -192.4621907468581
+      ],
+      "counts": [
+        632,
+        1086,
+        313,
+        3022,
+        4142
+      ],
+      "absolute_mean_signed_disagreement_hz": 192.4066732603285,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 195.0,
+      "bin_hi_hz": 200.0,
+      "x_hz": 197.5,
+      "signed_mean_hz": -197.42120846866143,
+      "volunteer_means_hz": [
+        -197.4215833737748,
+        -197.42367844944678,
+        -197.38381096868233,
+        -197.4683407223582,
+        -197.40862882904503
+      ],
+      "counts": [
+        491,
+        985,
+        303,
+        2703,
+        3869
+      ],
+      "absolute_mean_signed_disagreement_hz": 197.42120846866143,
+      "method": "uncorrected"
+    },
+    {
+      "bin_lo_hz": 0.0,
+      "bin_hi_hz": 5.0,
+      "x_hz": 2.5,
+      "signed_mean_hz": 0.2742221881522453,
+      "volunteer_means_hz": [
+        0.8086441575239335,
+        -0.20372801722314368,
+        1.0712245234814963,
+        1.443379675085185,
+        -1.748409398106245
+      ],
+      "counts": [
+        19214,
+        28955,
+        12347,
+        31185,
+        63153
+      ],
+      "absolute_mean_signed_disagreement_hz": 0.2742221881522453,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 5.0,
+      "bin_hi_hz": 10.0,
+      "x_hz": 7.5,
+      "signed_mean_hz": 1.1451269081666526,
+      "volunteer_means_hz": [
+        -0.09545335859344675,
+        -0.8727001959724361,
+        3.6887370679506435,
+        1.704946178992341,
+        1.3001048484561604
+      ],
+      "counts": [
+        19577,
+        27843,
+        13046,
+        31908,
+        58228
+      ],
+      "absolute_mean_signed_disagreement_hz": 1.1451269081666526,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 10.0,
+      "bin_hi_hz": 15.0,
+      "x_hz": 12.5,
+      "signed_mean_hz": -0.08276709866220981,
+      "volunteer_means_hz": [
+        -1.5357776760245223,
+        -3.7397127480830465,
+        1.2435090791730774,
+        1.0588274278366392,
+        2.5593184237868036
+      ],
+      "counts": [
+        20756,
+        28331,
+        14380,
+        31264,
+        52950
+      ],
+      "absolute_mean_signed_disagreement_hz": 0.08276709866220981,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 15.0,
+      "bin_hi_hz": 20.0,
+      "x_hz": 17.5,
+      "signed_mean_hz": -0.5973290760646014,
+      "volunteer_means_hz": [
+        -2.044407199307591,
+        -5.668305717457188,
+        0.631963055575772,
+        2.435208378099835,
+        1.6588961027661646
+      ],
+      "counts": [
+        21986,
+        29347,
+        14568,
+        31763,
+        49610
+      ],
+      "absolute_mean_signed_disagreement_hz": 0.5973290760646014,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 20.0,
+      "bin_hi_hz": 25.0,
+      "x_hz": 22.5,
+      "signed_mean_hz": -1.8520131412390501,
+      "volunteer_means_hz": [
+        -0.8689541262104685,
+        -7.431433056003543,
+        -0.1493878634340085,
+        -0.7903240677996834,
+        -0.0199665927475472
+      ],
+      "counts": [
+        23917,
+        30309,
+        15032,
+        32073,
+        47128
+      ],
+      "absolute_mean_signed_disagreement_hz": 1.8520131412390501,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 25.0,
+      "bin_hi_hz": 30.0,
+      "x_hz": 27.5,
+      "signed_mean_hz": -3.238530283382171,
+      "volunteer_means_hz": [
+        -3.7238188585986576,
+        -7.542902924831189,
+        -0.125492681367381,
+        -3.621349530321613,
+        -1.179087421792013
+      ],
+      "counts": [
+        24119,
+        31217,
+        15678,
+        31140,
+        45447
+      ],
+      "absolute_mean_signed_disagreement_hz": 3.238530283382171,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 30.0,
+      "bin_hi_hz": 35.0,
+      "x_hz": 32.5,
+      "signed_mean_hz": -3.8683390609362727,
+      "volunteer_means_hz": [
+        -5.578448792930124,
+        -6.807854553413458,
+        -1.0080938763693845,
+        -4.114265597280006,
+        -1.8330324846883925
+      ],
+      "counts": [
+        22682,
+        30624,
+        16782,
+        30348,
+        43723
+      ],
+      "absolute_mean_signed_disagreement_hz": 3.8683390609362727,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 35.0,
+      "bin_hi_hz": 40.0,
+      "x_hz": 37.5,
+      "signed_mean_hz": -4.2826238817119044,
+      "volunteer_means_hz": [
+        -6.803972541807214,
+        -5.051908909406208,
+        -1.5886256268242473,
+        -5.797881349890946,
+        -2.1707309806309043
+      ],
+      "counts": [
+        22830,
+        30158,
+        17731,
+        28234,
+        40932
+      ],
+      "absolute_mean_signed_disagreement_hz": 4.2826238817119044,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 40.0,
+      "bin_hi_hz": 45.0,
+      "x_hz": 42.5,
+      "signed_mean_hz": -4.388039015538825,
+      "volunteer_means_hz": [
+        -2.6895315866609426,
+        -5.405194179902557,
+        -0.8695495235879166,
+        -7.491163432876504,
+        -5.484756354666205
+      ],
+      "counts": [
+        23198,
+        29234,
+        17701,
+        26830,
+        38468
+      ],
+      "absolute_mean_signed_disagreement_hz": 4.388039015538825,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 45.0,
+      "bin_hi_hz": 50.0,
+      "x_hz": 47.5,
+      "signed_mean_hz": -5.622497186261024,
+      "volunteer_means_hz": [
+        -4.480590104288747,
+        -5.36274919562313,
+        -0.5282602742094615,
+        -9.512884677988668,
+        -8.228001679195113
+      ],
+      "counts": [
+        20174,
+        27890,
+        17141,
+        25505,
+        36999
+      ],
+      "absolute_mean_signed_disagreement_hz": 5.622497186261024,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 50.0,
+      "bin_hi_hz": 55.0,
+      "x_hz": 52.5,
+      "signed_mean_hz": -7.140147065067666,
+      "volunteer_means_hz": [
+        -5.236139463832007,
+        -8.606079296806522,
+        0.11078017842084983,
+        -11.941892605833484,
+        -10.027404137287165
+      ],
+      "counts": [
+        17797,
+        25785,
+        17634,
+        23978,
+        35340
+      ],
+      "absolute_mean_signed_disagreement_hz": 7.140147065067666,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 55.0,
+      "bin_hi_hz": 60.0,
+      "x_hz": 57.5,
+      "signed_mean_hz": -8.03026327282648,
+      "volunteer_means_hz": [
+        -3.6142901867009565,
+        -11.300662333107532,
+        0.8179599860164607,
+        -13.723783097087923,
+        -12.330540733252452
+      ],
+      "counts": [
+        15870,
+        22116,
+        19053,
+        22987,
+        31640
+      ],
+      "absolute_mean_signed_disagreement_hz": 8.03026327282648,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 60.0,
+      "bin_hi_hz": 65.0,
+      "x_hz": 62.5,
+      "signed_mean_hz": -8.538437497041233,
+      "volunteer_means_hz": [
+        -3.518807284528557,
+        -12.685503839009353,
+        1.1323522129301775,
+        -14.557528586465821,
+        -13.062699988132609
+      ],
+      "counts": [
+        14776,
+        20211,
+        19855,
+        22461,
+        28330
+      ],
+      "absolute_mean_signed_disagreement_hz": 8.538437497041233,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 65.0,
+      "bin_hi_hz": 70.0,
+      "x_hz": 67.5,
+      "signed_mean_hz": -9.48028206464878,
+      "volunteer_means_hz": [
+        -4.866171990094437,
+        -13.588581477150113,
+        0.2673243536593171,
+        -16.54980399655098,
+        -12.664177213107676
+      ],
+      "counts": [
+        14085,
+        18926,
+        19831,
+        21273,
+        25712
+      ],
+      "absolute_mean_signed_disagreement_hz": 9.48028206464878,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 70.0,
+      "bin_hi_hz": 75.0,
+      "x_hz": 72.5,
+      "signed_mean_hz": -10.917080140165378,
+      "volunteer_means_hz": [
+        -7.455774968861752,
+        -13.146124775090161,
+        -2.3194863666688237,
+        -18.288396338227273,
+        -13.375618251978896
+      ],
+      "counts": [
+        13819,
+        17290,
+        19475,
+        19646,
+        24494
+      ],
+      "absolute_mean_signed_disagreement_hz": 10.917080140165378,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 75.0,
+      "bin_hi_hz": 80.0,
+      "x_hz": 77.5,
+      "signed_mean_hz": -12.157861199380978,
+      "volunteer_means_hz": [
+        -11.165650531275855,
+        -13.757807422407156,
+        -3.459160114615193,
+        -20.325955772060215,
+        -12.080732156546462
+      ],
+      "counts": [
+        12945,
+        15377,
+        17976,
+        17372,
+        23040
+      ],
+      "absolute_mean_signed_disagreement_hz": 12.157861199380978,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 80.0,
+      "bin_hi_hz": 85.0,
+      "x_hz": 82.5,
+      "signed_mean_hz": -14.239109676266974,
+      "volunteer_means_hz": [
+        -13.625813777752596,
+        -15.63636687942579,
+        -5.2988552791330985,
+        -21.09404295249361,
+        -15.540469492529786
+      ],
+      "counts": [
+        12567,
+        12848,
+        17358,
+        14958,
+        19331
+      ],
+      "absolute_mean_signed_disagreement_hz": 14.239109676266974,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 85.0,
+      "bin_hi_hz": 90.0,
+      "x_hz": 87.5,
+      "signed_mean_hz": -17.66772471729795,
+      "volunteer_means_hz": [
+        -16.886482737016983,
+        -18.400844066878488,
+        -8.006124242597414,
+        -22.48861623810256,
+        -22.556556301894318
+      ],
+      "counts": [
+        12876,
+        11337,
+        15682,
+        13172,
+        17175
+      ],
+      "absolute_mean_signed_disagreement_hz": 17.66772471729795,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 90.0,
+      "bin_hi_hz": 95.0,
+      "x_hz": 92.5,
+      "signed_mean_hz": -19.52715522074764,
+      "volunteer_means_hz": [
+        -19.471273192580185,
+        -20.86192663993457,
+        -9.556000268906924,
+        -22.993319434942986,
+        -24.753256567373544
+      ],
+      "counts": [
+        12302,
+        10264,
+        13209,
+        12246,
+        15734
+      ],
+      "absolute_mean_signed_disagreement_hz": 19.52715522074764,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 95.0,
+      "bin_hi_hz": 100.0,
+      "x_hz": 97.5,
+      "signed_mean_hz": -21.481045231023177,
+      "volunteer_means_hz": [
+        -22.51183521998036,
+        -24.36638260836856,
+        -11.107011172678536,
+        -23.969464072941747,
+        -25.450533081146666
+      ],
+      "counts": [
+        12141,
+        9478,
+        11310,
+        11080,
+        14376
+      ],
+      "absolute_mean_signed_disagreement_hz": 21.481045231023177,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 100.0,
+      "bin_hi_hz": 105.0,
+      "x_hz": 102.5,
+      "signed_mean_hz": -21.925774238127435,
+      "volunteer_means_hz": [
+        -23.126341860221338,
+        -27.9485761161132,
+        -10.96076666507096,
+        -24.42570217068982,
+        -23.167484378541857
+      ],
+      "counts": [
+        11569,
+        8281,
+        9916,
+        10470,
+        13070
+      ],
+      "absolute_mean_signed_disagreement_hz": 21.925774238127435,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 105.0,
+      "bin_hi_hz": 110.0,
+      "x_hz": 107.5,
+      "signed_mean_hz": -23.702892127713028,
+      "volunteer_means_hz": [
+        -27.510719356570515,
+        -29.15911288335261,
+        -12.758458981729678,
+        -26.069014598755388,
+        -23.017154818156946
+      ],
+      "counts": [
+        11144,
+        7694,
+        9245,
+        9911,
+        12488
+      ],
+      "absolute_mean_signed_disagreement_hz": 23.702892127713028,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 110.0,
+      "bin_hi_hz": 115.0,
+      "x_hz": 112.5,
+      "signed_mean_hz": -25.324288135745817,
+      "volunteer_means_hz": [
+        -30.38422255295212,
+        -30.724734420273638,
+        -14.2611639606831,
+        -25.94032132688869,
+        -25.31099841793153
+      ],
+      "counts": [
+        11118,
+        7090,
+        8721,
+        9150,
+        11524
+      ],
+      "absolute_mean_signed_disagreement_hz": 25.324288135745817,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 115.0,
+      "bin_hi_hz": 120.0,
+      "x_hz": 117.5,
+      "signed_mean_hz": -27.68825866938811,
+      "volunteer_means_hz": [
+        -32.131090206326554,
+        -35.35235745720475,
+        -16.520583177310236,
+        -26.814247492107018,
+        -27.623015013991964
+      ],
+      "counts": [
+        11546,
+        6583,
+        8423,
+        8553,
+        10749
+      ],
+      "absolute_mean_signed_disagreement_hz": 27.68825866938811,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 120.0,
+      "bin_hi_hz": 125.0,
+      "x_hz": 122.5,
+      "signed_mean_hz": -29.548519165257694,
+      "volunteer_means_hz": [
+        -29.6590842664403,
+        -41.021587653485724,
+        -18.5927407776035,
+        -27.070410739748525,
+        -31.39877238901041
+      ],
+      "counts": [
+        12710,
+        5991,
+        8166,
+        7975,
+        10069
+      ],
+      "absolute_mean_signed_disagreement_hz": 29.548519165257694,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 125.0,
+      "bin_hi_hz": 130.0,
+      "x_hz": 127.5,
+      "signed_mean_hz": -29.37338766529026,
+      "volunteer_means_hz": [
+        -24.953926386540157,
+        -41.83000998026508,
+        -18.88565017592629,
+        -25.861732088476764,
+        -35.33561969524303
+      ],
+      "counts": [
+        10988,
+        5877,
+        7935,
+        7794,
+        9580
+      ],
+      "absolute_mean_signed_disagreement_hz": 29.37338766529026,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 130.0,
+      "bin_hi_hz": 135.0,
+      "x_hz": 132.5,
+      "signed_mean_hz": -32.2307973810249,
+      "volunteer_means_hz": [
+        -29.913208521727615,
+        -45.127949894566115,
+        -19.839108512146236,
+        -27.382837971999848,
+        -38.89088200468468
+      ],
+      "counts": [
+        8262,
+        6034,
+        7140,
+        7600,
+        9156
+      ],
+      "absolute_mean_signed_disagreement_hz": 32.2307973810249,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 135.0,
+      "bin_hi_hz": 140.0,
+      "x_hz": 137.5,
+      "signed_mean_hz": -35.561652204815246,
+      "volunteer_means_hz": [
+        -40.925939231177956,
+        -46.670332707760494,
+        -21.328482027047517,
+        -26.296311612693533,
+        -42.587195445396695
+      ],
+      "counts": [
+        4931,
+        6020,
+        5900,
+        7182,
+        8414
+      ],
+      "absolute_mean_signed_disagreement_hz": 35.561652204815246,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 140.0,
+      "bin_hi_hz": 145.0,
+      "x_hz": 142.5,
+      "signed_mean_hz": -37.27592283695336,
+      "volunteer_means_hz": [
+        -44.05582587424446,
+        -52.13889644038561,
+        -22.15087126140406,
+        -22.700258717244797,
+        -45.33376189148787
+      ],
+      "counts": [
+        3825,
+        5544,
+        5362,
+        6472,
+        7716
+      ],
+      "absolute_mean_signed_disagreement_hz": 37.27592283695336,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 145.0,
+      "bin_hi_hz": 150.0,
+      "x_hz": 147.5,
+      "signed_mean_hz": -38.10780664788827,
+      "volunteer_means_hz": [
+        -46.49435780496552,
+        -49.73163072579819,
+        -22.921572442991188,
+        -21.670307345203135,
+        -49.72116492048332
+      ],
+      "counts": [
+        3509,
+        4155,
+        4122,
+        5789,
+        7361
+      ],
+      "absolute_mean_signed_disagreement_hz": 38.10780664788827,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 150.0,
+      "bin_hi_hz": 155.0,
+      "x_hz": 152.5,
+      "signed_mean_hz": -42.113167226766535,
+      "volunteer_means_hz": [
+        -50.04895695709309,
+        -58.95254006914276,
+        -26.592411564589284,
+        -20.22424331640334,
+        -54.74768422660418
+      ],
+      "counts": [
+        3202,
+        2558,
+        3232,
+        5192,
+        7296
+      ],
+      "absolute_mean_signed_disagreement_hz": 42.113167226766535,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 155.0,
+      "bin_hi_hz": 160.0,
+      "x_hz": 157.5,
+      "signed_mean_hz": -47.69619256750443,
+      "volunteer_means_hz": [
+        -57.042735289043385,
+        -72.46556670508642,
+        -28.51303819098206,
+        -20.193693652198043,
+        -60.265929000212246
+      ],
+      "counts": [
+        2904,
+        1732,
+        2826,
+        4768,
+        7523
+      ],
+      "absolute_mean_signed_disagreement_hz": 47.69619256750443,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 160.0,
+      "bin_hi_hz": 165.0,
+      "x_hz": 162.5,
+      "signed_mean_hz": -53.05488247685778,
+      "volunteer_means_hz": [
+        -65.36399061081286,
+        -79.66789929424695,
+        -27.90228450681344,
+        -23.04164583562456,
+        -69.29859213679111
+      ],
+      "counts": [
+        2734,
+        1448,
+        2163,
+        4530,
+        7793
+      ],
+      "absolute_mean_signed_disagreement_hz": 53.05488247685778,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 165.0,
+      "bin_hi_hz": 170.0,
+      "x_hz": 167.5,
+      "signed_mean_hz": -63.292232622713755,
+      "volunteer_means_hz": [
+        -81.2607193006314,
+        -89.40891512465362,
+        -30.37489004426648,
+        -28.844734912058804,
+        -86.57190373195847
+      ],
+      "counts": [
+        2286,
+        1449,
+        1603,
+        4329,
+        6298
+      ],
+      "absolute_mean_signed_disagreement_hz": 63.292232622713755,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 170.0,
+      "bin_hi_hz": 175.0,
+      "x_hz": 172.5,
+      "signed_mean_hz": -71.34684636472548,
+      "volunteer_means_hz": [
+        -95.04170074565042,
+        -95.82999329114197,
+        -36.16708593738294,
+        -30.457852925798388,
+        -99.23759892365368
+      ],
+      "counts": [
+        1768,
+        1406,
+        1051,
+        4176,
+        5595
+      ],
+      "absolute_mean_signed_disagreement_hz": 71.34684636472548,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 175.0,
+      "bin_hi_hz": 180.0,
+      "x_hz": 177.5,
+      "signed_mean_hz": -77.16231373234582,
+      "volunteer_means_hz": [
+        -100.20229408633985,
+        -91.79294408530043,
+        -46.747900205932254,
+        -36.695663104365195,
+        -110.37276717979135
+      ],
+      "counts": [
+        1554,
+        1282,
+        584,
+        3719,
+        5177
+      ],
+      "absolute_mean_signed_disagreement_hz": 77.16231373234582,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 180.0,
+      "bin_hi_hz": 185.0,
+      "x_hz": 182.5,
+      "signed_mean_hz": -84.61253978752646,
+      "volunteer_means_hz": [
+        -110.81206782155215,
+        -90.5322384254786,
+        -55.20944169648583,
+        -42.18584688989578,
+        -124.32310410421992
+      ],
+      "counts": [
+        1282,
+        1189,
+        504,
+        3428,
+        4841
+      ],
+      "absolute_mean_signed_disagreement_hz": 84.61253978752646,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 185.0,
+      "bin_hi_hz": 190.0,
+      "x_hz": 187.5,
+      "signed_mean_hz": -83.41298753092607,
+      "volunteer_means_hz": [
+        -76.15804858305343,
+        -86.76338872900911,
+        -67.80101578620572,
+        -47.11877029808046,
+        -139.22371425828163
+      ],
+      "counts": [
+        818,
+        1139,
+        384,
+        3157,
+        4483
+      ],
+      "absolute_mean_signed_disagreement_hz": 83.41298753092607,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 190.0,
+      "bin_hi_hz": 195.0,
+      "x_hz": 192.5,
+      "signed_mean_hz": -80.55196351829663,
+      "volunteer_means_hz": [
+        -53.571362765529486,
+        -76.23576029097836,
+        -70.9900156103384,
+        -52.89987868755935,
+        -149.0628002370776
+      ],
+      "counts": [
+        632,
+        1086,
+        313,
+        3022,
+        4142
+      ],
+      "absolute_mean_signed_disagreement_hz": 80.55196351829663,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 195.0,
+      "bin_hi_hz": 200.0,
+      "x_hz": 197.5,
+      "signed_mean_hz": -86.18974258844146,
+      "volunteer_means_hz": [
+        -61.15695673263728,
+        -71.5071070766464,
+        -76.40676231392146,
+        -60.665638289510476,
+        -161.2122485294917
+      ],
+      "counts": [
+        491,
+        985,
+        303,
+        2703,
+        3869
+      ],
+      "absolute_mean_signed_disagreement_hz": 86.18974258844146,
+      "method": "isc"
+    },
+    {
+      "bin_lo_hz": 0.0,
+      "bin_hi_hz": 5.0,
+      "x_hz": 2.5,
+      "signed_mean_hz": -0.7199205380290341,
+      "volunteer_means_hz": [
+        -4.492203228284329,
+        1.6026173282493579,
+        0.6957583728186278,
+        -1.8878811446920722,
+        0.4821059817632453
+      ],
+      "counts": [
+        19214,
+        28955,
+        12347,
+        31185,
+        63153
+      ],
+      "absolute_mean_signed_disagreement_hz": 0.7199205380290341,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 5.0,
+      "bin_hi_hz": 10.0,
+      "x_hz": 7.5,
+      "signed_mean_hz": -2.4472496709221767,
+      "volunteer_means_hz": [
+        -12.886536582922052,
+        3.018064312816407,
+        3.276520635535388,
+        -5.153787287189455,
+        -0.4905094328511693
+      ],
+      "counts": [
+        19577,
+        27843,
+        13046,
+        31908,
+        58228
+      ],
+      "absolute_mean_signed_disagreement_hz": 2.4472496709221767,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 10.0,
+      "bin_hi_hz": 15.0,
+      "x_hz": 12.5,
+      "signed_mean_hz": -2.619062878385064,
+      "volunteer_means_hz": [
+        -15.283435334108152,
+        2.3963726954655087,
+        7.057503415988201,
+        -7.325261499677127,
+        0.0595063304062493
+      ],
+      "counts": [
+        20756,
+        28331,
+        14380,
+        31264,
+        52950
+      ],
+      "absolute_mean_signed_disagreement_hz": 2.619062878385064,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 15.0,
+      "bin_hi_hz": 20.0,
+      "x_hz": 17.5,
+      "signed_mean_hz": -4.019076504445901,
+      "volunteer_means_hz": [
+        -12.587519542073649,
+        -0.13827206852606916,
+        6.01890778183697,
+        -11.056387144434941,
+        -2.3321115490318194
+      ],
+      "counts": [
+        21986,
+        29347,
+        14568,
+        31763,
+        49610
+      ],
+      "absolute_mean_signed_disagreement_hz": 4.019076504445901,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 20.0,
+      "bin_hi_hz": 25.0,
+      "x_hz": 22.5,
+      "signed_mean_hz": -5.5662858316977495,
+      "volunteer_means_hz": [
+        -8.849638780937088,
+        -0.8351730924851369,
+        4.359057980342571,
+        -15.153327901602129,
+        -7.352347363806965
+      ],
+      "counts": [
+        23917,
+        30309,
+        15032,
+        32073,
+        47128
+      ],
+      "absolute_mean_signed_disagreement_hz": 5.5662858316977495,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 25.0,
+      "bin_hi_hz": 30.0,
+      "x_hz": 27.5,
+      "signed_mean_hz": -6.549710437357828,
+      "volunteer_means_hz": [
+        -6.788570257097221,
+        -0.09436045577436486,
+        2.4609334503159146,
+        -18.192926656404556,
+        -10.133628267828918
+      ],
+      "counts": [
+        24119,
+        31217,
+        15678,
+        31140,
+        45447
+      ],
+      "absolute_mean_signed_disagreement_hz": 6.549710437357828,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 30.0,
+      "bin_hi_hz": 35.0,
+      "x_hz": 32.5,
+      "signed_mean_hz": -8.52129771892054,
+      "volunteer_means_hz": [
+        -10.374648388212723,
+        -2.302785736034409,
+        0.6392671587572746,
+        -21.219330323499403,
+        -9.34899130561344
+      ],
+      "counts": [
+        22682,
+        30624,
+        16782,
+        30348,
+        43723
+      ],
+      "absolute_mean_signed_disagreement_hz": 8.52129771892054,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 35.0,
+      "bin_hi_hz": 40.0,
+      "x_hz": 37.5,
+      "signed_mean_hz": -11.815089726137794,
+      "volunteer_means_hz": [
+        -13.724703560961235,
+        -5.945051337528586,
+        -1.4886449045175592,
+        -25.24702233919689,
+        -12.670026488484694
+      ],
+      "counts": [
+        22830,
+        30158,
+        17731,
+        28234,
+        40932
+      ],
+      "absolute_mean_signed_disagreement_hz": 11.815089726137794,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 40.0,
+      "bin_hi_hz": 45.0,
+      "x_hz": 42.5,
+      "signed_mean_hz": -14.808442343093935,
+      "volunteer_means_hz": [
+        -15.756010125638301,
+        -7.745254948528969,
+        -2.874924679220642,
+        -27.999315974930163,
+        -19.6667059871516
+      ],
+      "counts": [
+        23198,
+        29234,
+        17701,
+        26830,
+        38468
+      ],
+      "absolute_mean_signed_disagreement_hz": 14.808442343093935,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 45.0,
+      "bin_hi_hz": 50.0,
+      "x_hz": 47.5,
+      "signed_mean_hz": -16.62282683748493,
+      "volunteer_means_hz": [
+        -18.21115294569116,
+        -8.00345203770351,
+        -4.886466376427659,
+        -30.870170081836886,
+        -21.142892745765415
+      ],
+      "counts": [
+        20174,
+        27890,
+        17141,
+        25505,
+        36999
+      ],
+      "absolute_mean_signed_disagreement_hz": 16.62282683748493,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 50.0,
+      "bin_hi_hz": 55.0,
+      "x_hz": 52.5,
+      "signed_mean_hz": -18.128204319826875,
+      "volunteer_means_hz": [
+        -21.561517182782314,
+        -8.689733916361957,
+        -5.413422939658598,
+        -33.82395228543984,
+        -21.15239527489167
+      ],
+      "counts": [
+        17797,
+        25785,
+        17634,
+        23978,
+        35340
+      ],
+      "absolute_mean_signed_disagreement_hz": 18.128204319826875,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 55.0,
+      "bin_hi_hz": 60.0,
+      "x_hz": 57.5,
+      "signed_mean_hz": -20.94939042193865,
+      "volunteer_means_hz": [
+        -24.577173790058357,
+        -11.485221578723582,
+        -5.892571162317922,
+        -37.64185149027178,
+        -25.15013408832161
+      ],
+      "counts": [
+        15870,
+        22116,
+        19053,
+        22987,
+        31640
+      ],
+      "absolute_mean_signed_disagreement_hz": 20.94939042193865,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 60.0,
+      "bin_hi_hz": 65.0,
+      "x_hz": 62.5,
+      "signed_mean_hz": -25.009685628055685,
+      "volunteer_means_hz": [
+        -26.48642594560959,
+        -12.972389590859054,
+        -7.011301692519492,
+        -45.9721744772087,
+        -32.606136434081584
+      ],
+      "counts": [
+        14776,
+        20211,
+        19855,
+        22461,
+        28330
+      ],
+      "absolute_mean_signed_disagreement_hz": 25.009685628055685,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 65.0,
+      "bin_hi_hz": 70.0,
+      "x_hz": 67.5,
+      "signed_mean_hz": -28.877403113174363,
+      "volunteer_means_hz": [
+        -28.80483429598506,
+        -16.50617393958883,
+        -8.911041670546053,
+        -49.44013421777277,
+        -40.7248314419791
+      ],
+      "counts": [
+        14085,
+        18926,
+        19831,
+        21273,
+        25712
+      ],
+      "absolute_mean_signed_disagreement_hz": 28.877403113174363,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 70.0,
+      "bin_hi_hz": 75.0,
+      "x_hz": 72.5,
+      "signed_mean_hz": -31.959570801213555,
+      "volunteer_means_hz": [
+        -32.073345751750686,
+        -17.947432558823692,
+        -10.68426902423519,
+        -47.55902932727234,
+        -51.53377734398585
+      ],
+      "counts": [
+        13819,
+        17290,
+        19475,
+        19646,
+        24494
+      ],
+      "absolute_mean_signed_disagreement_hz": 31.959570801213555,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 75.0,
+      "bin_hi_hz": 80.0,
+      "x_hz": 77.5,
+      "signed_mean_hz": -34.58889448945096,
+      "volunteer_means_hz": [
+        -36.280754232810274,
+        -20.828373608312333,
+        -14.572416363319636,
+        -42.567198839397456,
+        -58.69572940341507
+      ],
+      "counts": [
+        12945,
+        15377,
+        17976,
+        17372,
+        23040
+      ],
+      "absolute_mean_signed_disagreement_hz": 34.58889448945096,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 80.0,
+      "bin_hi_hz": 85.0,
+      "x_hz": 82.5,
+      "signed_mean_hz": -37.91965550246569,
+      "volunteer_means_hz": [
+        -40.50060332779833,
+        -21.609880951740816,
+        -18.115553056223234,
+        -42.329197016039856,
+        -67.04304316052621
+      ],
+      "counts": [
+        12567,
+        12848,
+        17358,
+        14958,
+        19331
+      ],
+      "absolute_mean_signed_disagreement_hz": 37.91965550246569,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 85.0,
+      "bin_hi_hz": 90.0,
+      "x_hz": 87.5,
+      "signed_mean_hz": -41.25159011662193,
+      "volunteer_means_hz": [
+        -46.06651741231995,
+        -24.409924416679132,
+        -19.525634815230923,
+        -42.023512405983375,
+        -74.23236153289625
+      ],
+      "counts": [
+        12876,
+        11337,
+        15682,
+        13172,
+        17175
+      ],
+      "absolute_mean_signed_disagreement_hz": 41.25159011662193,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 90.0,
+      "bin_hi_hz": 95.0,
+      "x_hz": 92.5,
+      "signed_mean_hz": -44.255152339294064,
+      "volunteer_means_hz": [
+        -49.26037136306673,
+        -25.119536112018352,
+        -21.694624592215263,
+        -42.362779623093516,
+        -82.83845000607644
+      ],
+      "counts": [
+        12302,
+        10264,
+        13209,
+        12246,
+        15734
+      ],
+      "absolute_mean_signed_disagreement_hz": 44.255152339294064,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 95.0,
+      "bin_hi_hz": 100.0,
+      "x_hz": 97.5,
+      "signed_mean_hz": -48.578138268075485,
+      "volunteer_means_hz": [
+        -54.32182017246188,
+        -28.929485301009006,
+        -24.566357596688942,
+        -42.88207583016168,
+        -92.19095244005591
+      ],
+      "counts": [
+        12141,
+        9478,
+        11310,
+        11080,
+        14376
+      ],
+      "absolute_mean_signed_disagreement_hz": 48.578138268075485,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 100.0,
+      "bin_hi_hz": 105.0,
+      "x_hz": 102.5,
+      "signed_mean_hz": -51.824144239208735,
+      "volunteer_means_hz": [
+        -56.27390343881548,
+        -32.856374747002995,
+        -24.975678363152493,
+        -45.288516870426626,
+        -99.7262477766461
+      ],
+      "counts": [
+        11569,
+        8281,
+        9916,
+        10470,
+        13070
+      ],
+      "absolute_mean_signed_disagreement_hz": 51.824144239208735,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 105.0,
+      "bin_hi_hz": 110.0,
+      "x_hz": 107.5,
+      "signed_mean_hz": -57.21686551419582,
+      "volunteer_means_hz": [
+        -62.42264116115174,
+        -37.09342286725121,
+        -25.379407975788435,
+        -50.872660766365996,
+        -110.31619480042175
+      ],
+      "counts": [
+        11144,
+        7694,
+        9245,
+        9911,
+        12488
+      ],
+      "absolute_mean_signed_disagreement_hz": 57.21686551419582,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 110.0,
+      "bin_hi_hz": 115.0,
+      "x_hz": 112.5,
+      "signed_mean_hz": -61.72993330643103,
+      "volunteer_means_hz": [
+        -63.92185497442356,
+        -39.40545769888972,
+        -29.148133303070637,
+        -55.50731500689123,
+        -120.66690554887998
+      ],
+      "counts": [
+        11118,
+        7090,
+        8721,
+        9150,
+        11524
+      ],
+      "absolute_mean_signed_disagreement_hz": 61.72993330643103,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 115.0,
+      "bin_hi_hz": 120.0,
+      "x_hz": 117.5,
+      "signed_mean_hz": -66.95343181962343,
+      "volunteer_means_hz": [
+        -70.18112923193542,
+        -40.483403537674995,
+        -33.599474351127945,
+        -57.94835739570205,
+        -132.55479458167682
+      ],
+      "counts": [
+        11546,
+        6583,
+        8423,
+        8553,
+        10749
+      ],
+      "absolute_mean_signed_disagreement_hz": 66.95343181962343,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 120.0,
+      "bin_hi_hz": 125.0,
+      "x_hz": 122.5,
+      "signed_mean_hz": -70.46946006089209,
+      "volunteer_means_hz": [
+        -89.93928983209408,
+        -30.375149592232415,
+        -33.74007436079837,
+        -58.58882579029043,
+        -139.7039607290451
+      ],
+      "counts": [
+        12710,
+        5991,
+        8166,
+        7975,
+        10069
+      ],
+      "absolute_mean_signed_disagreement_hz": 70.46946006089209,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 125.0,
+      "bin_hi_hz": 130.0,
+      "x_hz": 127.5,
+      "signed_mean_hz": -69.38069831132623,
+      "volunteer_means_hz": [
+        -85.65286795135341,
+        -30.29052328137787,
+        -24.05085340217366,
+        -58.62981118184065,
+        -148.27943573988554
+      ],
+      "counts": [
+        10988,
+        5877,
+        7935,
+        7794,
+        9580
+      ],
+      "absolute_mean_signed_disagreement_hz": 69.38069831132623,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 130.0,
+      "bin_hi_hz": 135.0,
+      "x_hz": 132.5,
+      "signed_mean_hz": -66.71488538559183,
+      "volunteer_means_hz": [
+        -80.82226822615381,
+        -24.800663722462318,
+        -17.020111109249566,
+        -59.68560623365798,
+        -151.24577763643552
+      ],
+      "counts": [
+        8262,
+        6034,
+        7140,
+        7600,
+        9156
+      ],
+      "absolute_mean_signed_disagreement_hz": 66.71488538559183,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 135.0,
+      "bin_hi_hz": 140.0,
+      "x_hz": 137.5,
+      "signed_mean_hz": -65.75009871051725,
+      "volunteer_means_hz": [
+        -69.72070581890794,
+        -31.467867426320097,
+        -15.220152149766179,
+        -57.86933187644379,
+        -154.47243628114822
+      ],
+      "counts": [
+        4931,
+        6020,
+        5900,
+        7182,
+        8414
+      ],
+      "absolute_mean_signed_disagreement_hz": 65.75009871051725,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 140.0,
+      "bin_hi_hz": 145.0,
+      "x_hz": 142.5,
+      "signed_mean_hz": -68.01033996791551,
+      "volunteer_means_hz": [
+        -73.18586110856019,
+        -43.739699626639805,
+        -15.739032554742073,
+        -56.48382011888957,
+        -150.90328643074594
+      ],
+      "counts": [
+        3825,
+        5544,
+        5362,
+        6472,
+        7716
+      ],
+      "absolute_mean_signed_disagreement_hz": 68.01033996791551,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 145.0,
+      "bin_hi_hz": 150.0,
+      "x_hz": 147.5,
+      "signed_mean_hz": -70.52399883090625,
+      "volunteer_means_hz": [
+        -83.24299604487099,
+        -50.73972688871744,
+        -17.10208008518964,
+        -52.88312043122192,
+        -148.65207070453127
+      ],
+      "counts": [
+        3509,
+        4155,
+        4122,
+        5789,
+        7361
+      ],
+      "absolute_mean_signed_disagreement_hz": 70.52399883090625,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 150.0,
+      "bin_hi_hz": 155.0,
+      "x_hz": 152.5,
+      "signed_mean_hz": -72.89816603529096,
+      "volunteer_means_hz": [
+        -99.6553678073822,
+        -51.95992124390565,
+        -19.3604184309537,
+        -48.706853920447486,
+        -144.80826877376572
+      ],
+      "counts": [
+        3202,
+        2558,
+        3232,
+        5192,
+        7296
+      ],
+      "absolute_mean_signed_disagreement_hz": 72.89816603529096,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 155.0,
+      "bin_hi_hz": 160.0,
+      "x_hz": 157.5,
+      "signed_mean_hz": -73.7791678135973,
+      "volunteer_means_hz": [
+        -117.25356095372481,
+        -50.00118293346489,
+        -12.598396632111166,
+        -49.378623769804,
+        -139.66407477888166
+      ],
+      "counts": [
+        2904,
+        1732,
+        2826,
+        4768,
+        7523
+      ],
+      "absolute_mean_signed_disagreement_hz": 73.7791678135973,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 160.0,
+      "bin_hi_hz": 165.0,
+      "x_hz": 162.5,
+      "signed_mean_hz": -73.77786238453213,
+      "volunteer_means_hz": [
+        -113.77095604109651,
+        -52.06402667196087,
+        -15.434943759766542,
+        -55.71994612107082,
+        -131.89943932876588
+      ],
+      "counts": [
+        2734,
+        1448,
+        2163,
+        4530,
+        7793
+      ],
+      "absolute_mean_signed_disagreement_hz": 73.77786238453213,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 165.0,
+      "bin_hi_hz": 170.0,
+      "x_hz": 167.5,
+      "signed_mean_hz": -80.16055024757664,
+      "volunteer_means_hz": [
+        -125.56150110728211,
+        -42.00100335394456,
+        -17.279244815455478,
+        -70.26015071061087,
+        -145.70085125059012
+      ],
+      "counts": [
+        2286,
+        1449,
+        1603,
+        4329,
+        6298
+      ],
+      "absolute_mean_signed_disagreement_hz": 80.16055024757664,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 170.0,
+      "bin_hi_hz": 175.0,
+      "x_hz": 172.5,
+      "signed_mean_hz": -94.53539959999618,
+      "volunteer_means_hz": [
+        -184.03922994311782,
+        -27.54803967475891,
+        -20.463537145097636,
+        -85.7508634058247,
+        -154.8753278311818
+      ],
+      "counts": [
+        1768,
+        1406,
+        1051,
+        4176,
+        5595
+      ],
+      "absolute_mean_signed_disagreement_hz": 94.53539959999618,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 175.0,
+      "bin_hi_hz": 180.0,
+      "x_hz": 177.5,
+      "signed_mean_hz": -104.29867602072996,
+      "volunteer_means_hz": [
+        -215.5006989737927,
+        -37.30482419641825,
+        -21.216460004244766,
+        -93.90728059391282,
+        -153.56411633528128
+      ],
+      "counts": [
+        1554,
+        1282,
+        584,
+        3719,
+        5177
+      ],
+      "absolute_mean_signed_disagreement_hz": 104.29867602072996,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 180.0,
+      "bin_hi_hz": 185.0,
+      "x_hz": 182.5,
+      "signed_mean_hz": -109.88290539407994,
+      "volunteer_means_hz": [
+        -226.06692085267508,
+        -54.30655828196026,
+        -18.1867627288614,
+        -96.98653888838015,
+        -153.86774621852285
+      ],
+      "counts": [
+        1282,
+        1189,
+        504,
+        3428,
+        4841
+      ],
+      "absolute_mean_signed_disagreement_hz": 109.88290539407994,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 185.0,
+      "bin_hi_hz": 190.0,
+      "x_hz": 187.5,
+      "signed_mean_hz": -107.6801122423323,
+      "volunteer_means_hz": [
+        -196.41540882260992,
+        -59.93242562748655,
+        -20.05494651198387,
+        -107.18312809376313,
+        -154.81465215581804
+      ],
+      "counts": [
+        818,
+        1139,
+        384,
+        3157,
+        4483
+      ],
+      "absolute_mean_signed_disagreement_hz": 107.6801122423323,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 190.0,
+      "bin_hi_hz": 195.0,
+      "x_hz": 192.5,
+      "signed_mean_hz": -108.96113431859904,
+      "volunteer_means_hz": [
+        -148.5621548683583,
+        -71.51892409848244,
+        -26.534087392087944,
+        -124.78774629236452,
+        -173.4027589417019
+      ],
+      "counts": [
+        632,
+        1086,
+        313,
+        3022,
+        4142
+      ],
+      "absolute_mean_signed_disagreement_hz": 108.96113431859904,
+      "method": "autofocus"
+    },
+    {
+      "bin_lo_hz": 195.0,
+      "bin_hi_hz": 200.0,
+      "x_hz": 197.5,
+      "signed_mean_hz": -114.38066891281282,
+      "volunteer_means_hz": [
+        -119.48709599112298,
+        -89.07765457466775,
+        -33.44083317042184,
+        -145.14715429466827,
+        -184.75060653318326
+      ],
+      "counts": [
+        491,
+        985,
+        303,
+        2703,
+        3869
+      ],
+      "absolute_mean_signed_disagreement_hz": 114.38066891281282,
+      "method": "autofocus"
+    }
+  ],
+  "B_statistic": "abs(mean_s(mean_x((f_eff-reference)*sign(reference))))"
+}

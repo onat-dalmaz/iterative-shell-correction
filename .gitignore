@@ -1,7 +1,14 @@
+.venv/
+outputs/
 results/
+private/
 *.npy
+*.npz
 *.mat
+*.dcm
 *.log
 __pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
 .DS_Store
-!data/tkr_profile_brian.npz

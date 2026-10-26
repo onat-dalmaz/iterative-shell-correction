@@ -1,0 +1,628 @@
+{
+  "kind": "phantom",
+  "shape_zxy": [
+    112,
+    768,
+    768
+  ],
+  "voxel_mm": [
+    1.5,
+    0.546875,
+    0.546875
+  ],
+  "units": {
+    "timing": "seconds on the centered k-space grid",
+    "fields": "physical Hz: source phase exp(-i*2*pi*f*t)",
+    "spacing": "millimeters"
+  },
+  "correction": {
+    "shells": 16,
+    "shell_spacing_ms": 0.6,
+    "updates": 3,
+    "update_cap_hz": 60,
+    "final_shells": 16
+  },
+  "reference_CP": {
+    "df_hz": 2,
+    "clip_hz": 600,
+    "anchor_every": 16
+  },
+  "display_window": [
+    0.0,
+    0.00015064430772326887
+  ],
+  "metric_z": 56,
+  "figure_z": 53,
+  "reference_range": 0.00015064430772326887,
+  "grid_tiles": [
+    {
+      "id": "GRID_TILE_00",
+      "z": 56,
+      "x": [
+        220,
+        300
+      ],
+      "y": [
+        200,
+        280
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_01",
+      "z": 56,
+      "x": [
+        220,
+        300
+      ],
+      "y": [
+        280,
+        360
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_02",
+      "z": 56,
+      "x": [
+        220,
+        300
+      ],
+      "y": [
+        360,
+        440
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_03",
+      "z": 56,
+      "x": [
+        220,
+        300
+      ],
+      "y": [
+        440,
+        520
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_04",
+      "z": 56,
+      "x": [
+        220,
+        300
+      ],
+      "y": [
+        520,
+        600
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_10",
+      "z": 56,
+      "x": [
+        300,
+        380
+      ],
+      "y": [
+        200,
+        280
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_11",
+      "z": 56,
+      "x": [
+        300,
+        380
+      ],
+      "y": [
+        280,
+        360
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_12",
+      "z": 56,
+      "x": [
+        300,
+        380
+      ],
+      "y": [
+        360,
+        440
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_13",
+      "z": 56,
+      "x": [
+        300,
+        380
+      ],
+      "y": [
+        440,
+        520
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_14",
+      "z": 56,
+      "x": [
+        300,
+        380
+      ],
+      "y": [
+        520,
+        600
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_20",
+      "z": 56,
+      "x": [
+        380,
+        460
+      ],
+      "y": [
+        200,
+        280
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_21",
+      "z": 56,
+      "x": [
+        380,
+        460
+      ],
+      "y": [
+        280,
+        360
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_22",
+      "z": 56,
+      "x": [
+        380,
+        460
+      ],
+      "y": [
+        360,
+        440
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_23",
+      "z": 56,
+      "x": [
+        380,
+        460
+      ],
+      "y": [
+        440,
+        520
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_24",
+      "z": 56,
+      "x": [
+        380,
+        460
+      ],
+      "y": [
+        520,
+        600
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_30",
+      "z": 56,
+      "x": [
+        460,
+        540
+      ],
+      "y": [
+        200,
+        280
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_31",
+      "z": 56,
+      "x": [
+        460,
+        540
+      ],
+      "y": [
+        280,
+        360
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_32",
+      "z": 56,
+      "x": [
+        460,
+        540
+      ],
+      "y": [
+        360,
+        440
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_33",
+      "z": 56,
+      "x": [
+        460,
+        540
+      ],
+      "y": [
+        440,
+        520
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_34",
+      "z": 56,
+      "x": [
+        460,
+        540
+      ],
+      "y": [
+        520,
+        600
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_40",
+      "z": 56,
+      "x": [
+        540,
+        620
+      ],
+      "y": [
+        200,
+        280
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_41",
+      "z": 56,
+      "x": [
+        540,
+        620
+      ],
+      "y": [
+        280,
+        360
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_42",
+      "z": 56,
+      "x": [
+        540,
+        620
+      ],
+      "y": [
+        360,
+        440
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_43",
+      "z": 56,
+      "x": [
+        540,
+        620
+      ],
+      "y": [
+        440,
+        520
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    },
+    {
+      "id": "GRID_TILE_44",
+      "z": 56,
+      "x": [
+        540,
+        620
+      ],
+      "y": [
+        520,
+        600
+      ],
+      "native_shape": [
+        80,
+        80
+      ],
+      "extent_mm_xy": [
+        43.75,
+        43.75
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "standard_autoshim",
+      "volume": {
+        "file": "standard_autoshim/volume.npy",
+        "sha256": "72390c20e9552e252f1f0ecbfd40213d5b9859da1abee32f5e34c36d4a0837a4"
+      },
+      "timing": {
+        "file": "standard_autoshim/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "standard_autoshim/reference_complex.npy"
+      },
+      "reference_plane": {
+        "file": "standard_autoshim/reference_magnitude_z56.npy",
+        "sha256": "8585a24d49732b4daca289f888face67bd0846b40343ee9d7572b3f876ea2cc7"
+      },
+      "strict_mask": {
+        "file": "standard_autoshim/strict_support_z56_packbits.npy",
+        "sha256": "0fef026eecedbd9a93ccc6b8ae9bf193cde46d07082fb4c404bcab55b7c59067",
+        "packed_bits": true
+      },
+      "tissue_mask": {
+        "file": "standard_autoshim/tissue_support_z56_packbits.npy",
+        "sha256": "4a46c9f80a6ff67ce794254724ca17d489b688e5fa6b1db1c226c4eaffe611fe",
+        "packed_bits": true
+      }
+    },
+    {
+      "id": "modified_x",
+      "volume": {
+        "file": "modified_x/volume.npy",
+        "sha256": "0ef45bbe80df0bfe812501718f6c4cc387aee299ea0e5ca032d1fbf4e49397f7"
+      },
+      "timing": {
+        "file": "modified_x/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "modified_x/reference_complex.npy"
+      },
+      "reference_plane": {
+        "file": "modified_x/reference_magnitude_z56.npy",
+        "sha256": "df4e4330e83b774aa818664efa959dbae53b79cbb1f943d770a478219bd5d458"
+      },
+      "strict_mask": {
+        "file": "modified_x/strict_support_z56_packbits.npy",
+        "sha256": "0fef026eecedbd9a93ccc6b8ae9bf193cde46d07082fb4c404bcab55b7c59067",
+        "packed_bits": true
+      },
+      "tissue_mask": {
+        "file": "modified_x/tissue_support_z56_packbits.npy",
+        "sha256": "01f5fd9f132670fdafabb048f34f80b4a65da6c91c4e5329f74caef5be6bb599",
+        "packed_bits": true
+      }
+    },
+    {
+      "id": "modified_y",
+      "volume": {
+        "file": "modified_y/volume.npy",
+        "sha256": "5387745ed044254962dcc1764a462b3d5ed266a82506cabf4e77d0a213196c45"
+      },
+      "timing": {
+        "file": "modified_y/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "modified_y/reference_complex.npy"
+      },
+      "reference_plane": {
+        "file": "modified_y/reference_magnitude_z56.npy",
+        "sha256": "72e73785bbc1659cf0a27ca06b1df50e9d0b98b325a1b9c6080aefd3ca706495"
+      },
+      "strict_mask": {
+        "file": "modified_y/strict_support_z56_packbits.npy",
+        "sha256": "0fef026eecedbd9a93ccc6b8ae9bf193cde46d07082fb4c404bcab55b7c59067",
+        "packed_bits": true
+      },
+      "tissue_mask": {
+        "file": "modified_y/tissue_support_z56_packbits.npy",
+        "sha256": "80cc5c86773c1db3e9c29ba0902ccbbc2f9c395d971dc60f71d71d554b61834b",
+        "packed_bits": true
+      }
+    }
+  ]
+}

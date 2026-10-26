@@ -1,0 +1,422 @@
+{
+  "kind": "volunteers",
+  "shape_zxy": [
+    112,
+    768,
+    768
+  ],
+  "voxel_mm": [
+    1.5,
+    0.546875,
+    0.546875
+  ],
+  "units": {
+    "timing": "seconds on the centered k-space grid",
+    "fields": "physical Hz: source phase exp(-i*2*pi*f*t)",
+    "spacing": "millimeters"
+  },
+  "correction": {
+    "shells": 16,
+    "shell_spacing_ms": 0.6,
+    "updates": 3,
+    "update_cap_hz": 60,
+    "final_shells": 16
+  },
+  "reference_CP": {
+    "df_hz": 2,
+    "clip_hz": 600,
+    "anchor_every": 16
+  },
+  "cases": [
+    {
+      "id": "S01",
+      "volume": {
+        "file": "S01/volume.npy",
+        "sha256": "33c022fd548ed994461aad10e50298280748dddc2947b9e75cf19b2a7238a8be"
+      },
+      "timing": {
+        "file": "S01/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "S01/reference_complex.npy",
+        "sha256": "6a5451ba60498ae397e3a092ac2690af89b5e08691eb6c7715ddec692ed4c7ec"
+      },
+      "breast_mask": {
+        "file": "S01/breast_mask.npy",
+        "sha256": "9b55f164ff0901de2dd552c511a80b4796ac1a4c75e5d76558b50f9b0d00ee79"
+      },
+      "anterior_roi": {
+        "file": "S01/anterior_roi.npz",
+        "sha256": "8fb4a9a84ae8e79aa34d742a7ca0e9792815d85e76aff8abea6b25161c541a02",
+        "key": "mask"
+      },
+      "body_mask": {
+        "file": "S01/body_mask.npy",
+        "sha256": "73ec85c831ea11502085a380ae6a149ac947f0f322d984414d4689ed9d63df20"
+      },
+      "reference_support": {
+        "file": "S01/reference_support.npy",
+        "sha256": "46757f3dcb6ca4dd274f36bf76b3b4d1de12c1f24a564dffd6063a0099e87b5b"
+      },
+      "reference_magnitude": {
+        "file": "S01/reference_magnitude.npy",
+        "sha256": "d7845134d601dc23acf5da3f23ce2da5e4271e7e14829ae4f9ea2c91ae90119f"
+      },
+      "reference_field_hz": {
+        "file": "S01/reference_field_hz.npy",
+        "sha256": "b48844200dfb535e8aa0c1825f5758bdd9ad9a2573b2d7f9593981261f498112"
+      },
+      "reference_range": 143.31973266601562,
+      "reference_gain": 1.0051266052118213,
+      "saved_gains": {
+        "uncorrected": 1.0,
+        "autofocus": 1.0078049135374811,
+        "isc": 0.9990435766670981
+      },
+      "gain_sampling_slices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108
+      ]
+    },
+    {
+      "id": "S02",
+      "volume": {
+        "file": "S02/volume.npy",
+        "sha256": "775eece53558353eba2a86c72a75755ca9948a9191da0e0caf362c9a05a547a6"
+      },
+      "timing": {
+        "file": "S02/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "S02/reference_complex.npy",
+        "sha256": "6de9c4d7df95a9045be27a1dff376cb3988c5c41400121b89b2b9ff6c36dc00a"
+      },
+      "breast_mask": {
+        "file": "S02/breast_mask.npy",
+        "sha256": "1466d36d1ee8d6066c61c4189e4568cf3c1fa029edbcb212ea15d16825ceb7f0"
+      },
+      "anterior_roi": {
+        "file": "S02/anterior_roi.npz",
+        "sha256": "2c2d21e04258fa59bfeea0c42eaf0980257a3028a72bfba30b1ac06e3812468a",
+        "key": "mask"
+      },
+      "body_mask": {
+        "file": "S02/body_mask.npy",
+        "sha256": "2f2f6b3525980080d8b12e40b17966f8eea8ac4985c6fe07a88fd937ddefcc58"
+      },
+      "reference_support": {
+        "file": "S02/reference_support.npy",
+        "sha256": "46757f3dcb6ca4dd274f36bf76b3b4d1de12c1f24a564dffd6063a0099e87b5b"
+      },
+      "reference_magnitude": {
+        "file": "S02/reference_magnitude.npy",
+        "sha256": "4ce350000f5bf3f6b1fe407a782bf3fcb3c218c8647cfe01245507aefc031416"
+      },
+      "reference_field_hz": {
+        "file": "S02/reference_field_hz.npy",
+        "sha256": "6e5dfdabf6911941596bcc276489dec84f0102a4a602adfb0f8dc17a919e41c5"
+      },
+      "reference_range": 0.0005188114009797573,
+      "reference_gain": 1.0076424328806772,
+      "saved_gains": {
+        "uncorrected": 1.0,
+        "autofocus": 1.0155748270925002,
+        "isc": 1.0045204525279596
+      },
+      "gain_sampling_slices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108
+      ]
+    },
+    {
+      "id": "S03",
+      "volume": {
+        "file": "S03/volume.npy",
+        "sha256": "481e7487a46d72a6c6c784b4c2908a71e39f3460b5ed86f36114b79dd12f5582"
+      },
+      "timing": {
+        "file": "S03/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "S03/reference_complex.npy",
+        "sha256": "136aa3177f694271bd56813dd7dd3cd013dde1f74361d01995acf2ef68911b5f"
+      },
+      "breast_mask": {
+        "file": "S03/breast_mask.npy",
+        "sha256": "a12cae376d3025734df9f56af8bd683880603258e28077261829d9fa1d76e706"
+      },
+      "anterior_roi": {
+        "file": "S03/anterior_roi.npz",
+        "sha256": "e9326ea7056d2bd4821691e3d2ed1fa1301b72970a7880eee036b89a5717fe67",
+        "key": "mask"
+      },
+      "body_mask": {
+        "file": "S03/body_mask.npy",
+        "sha256": "3b6fa80722f2192a006030399bdfb39e48a658b9ffbe9536e9e35750fada7954"
+      },
+      "reference_support": {
+        "file": "S03/reference_support.npy",
+        "sha256": "46757f3dcb6ca4dd274f36bf76b3b4d1de12c1f24a564dffd6063a0099e87b5b"
+      },
+      "reference_magnitude": {
+        "file": "S03/reference_magnitude.npy",
+        "sha256": "af44dc4edb3e2b397f64bb099512f18ab5b11a9c3ab1d1053ca4be5ba33b3950"
+      },
+      "reference_field_hz": {
+        "file": "S03/reference_field_hz.npy",
+        "sha256": "c2a27bbbdb7353d84bca68555027815e88febd5bbc99c97221d9985eff027402"
+      },
+      "reference_range": 0.0003254610928706825,
+      "reference_gain": 1.0085187461868483,
+      "saved_gains": {
+        "uncorrected": 1.0,
+        "autofocus": 1.0110348555706388,
+        "isc": 1.0074172934622487
+      },
+      "gain_sampling_slices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108
+      ]
+    },
+    {
+      "id": "S04",
+      "volume": {
+        "file": "S04/volume.npy",
+        "sha256": "934b259172e13c07c5b40bba5ca7c2cf81071bb4419c051ab9ff0c88b71253dc"
+      },
+      "timing": {
+        "file": "S04/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "S04/reference_complex.npy",
+        "sha256": "a858bcd3410a3c9dc197a0183bdfe2999ba99103140926cba9bb472e4b23d050"
+      },
+      "breast_mask": {
+        "file": "S04/breast_mask.npy",
+        "sha256": "498dc4464f9632a745b3d311dcf01fc451e13035f99168cbe58ba4d2aab5f0dc"
+      },
+      "anterior_roi": {
+        "file": "S04/anterior_roi.npz",
+        "sha256": "b8cab84b5893bad657ccad746d35f5c77309a89ca1d6cac505d6445af2261235",
+        "key": "mask"
+      },
+      "body_mask": {
+        "file": "S04/body_mask.npy",
+        "sha256": "0efd9f8b9ec42021067a74d069d3c1ba3b7c5c7b60a77b3d9a37fe44a006d5ce"
+      },
+      "reference_support": {
+        "file": "S04/reference_support.npy",
+        "sha256": "969cfe7c9224ba522f68dad934440433b5edae0fc5a24ed7fa325f235f26c569"
+      },
+      "reference_magnitude": {
+        "file": "S04/reference_magnitude.npy",
+        "sha256": "7915a7c0ee045db45a528d20990a6c53d6ac120a0a2d0f959bfc9bf017185653"
+      },
+      "reference_field_hz": {
+        "file": "S04/reference_field_hz.npy",
+        "sha256": "c05335671bc2a6d676866b51858990af5cbd510fb6abcf64117a1d195c94f608"
+      },
+      "reference_range": 99.88327026367188,
+      "reference_gain": 1.0033342265904983,
+      "saved_gains": {
+        "uncorrected": 1.0,
+        "autofocus": 1.0092071319736224,
+        "isc": 1.0046775001821284
+      },
+      "gain_sampling_slices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108
+      ]
+    },
+    {
+      "id": "S05",
+      "volume": {
+        "file": "S05/volume.npy",
+        "sha256": "d2d57ec3e574bda924f70586d991fc334b966f5a5f4624c8d7994a911a07d121"
+      },
+      "timing": {
+        "file": "S05/timing.npy",
+        "sha256": "428219df5055ed94f5b4c0c2a59aeca2a4639c27dbb885c035ec4005d46fb3fb"
+      },
+      "reference": {
+        "mode": "saved_complex",
+        "file": "S05/reference_complex.npy",
+        "sha256": "f6fc809d4deeac9e932c42492157105bad81a1d5b4d164ae9fdf162bda34900a"
+      },
+      "breast_mask": {
+        "file": "S05/breast_mask.npy",
+        "sha256": "61758be1558bae64838c0e58bc99460fd48284bcbfaef6efdd6a2bb5b93d3c4e"
+      },
+      "anterior_roi": {
+        "file": "S05/anterior_roi.npz",
+        "sha256": "8f0674f1731c82558d1072f5d720e53e06eb9597ec1ffe2919716853717eb7ca",
+        "key": "mask"
+      },
+      "body_mask": {
+        "file": "S05/body_mask.npy",
+        "sha256": "9aa0e561b84fb9337638b4b4f20eacf94cb85fa021ee2e2c3ef4eacde5065022"
+      },
+      "reference_support": {
+        "file": "S05/reference_support.npy",
+        "sha256": "1d615f9d07bf20d525a8bcb7fa5be150b2502309647e52ae463454f9e0f98f20"
+      },
+      "reference_magnitude": {
+        "file": "S05/reference_magnitude.npy",
+        "sha256": "08327c19d085347c3d26b97a16207aed9bf22241bf16180e34f957d768534f97"
+      },
+      "reference_field_hz": {
+        "file": "S05/reference_field_hz.npy",
+        "sha256": "0105b940a5897400469e37706d4312f20a49f9d380e5172bebd1ac0c45424eff"
+      },
+      "reference_range": 0.0003529117675498128,
+      "reference_gain": 1.0072696666286607,
+      "saved_gains": {
+        "uncorrected": 1.0,
+        "autofocus": 1.0146056037070286,
+        "isc": 1.0095314057349152
+      },
+      "gain_sampling_slices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108
+      ]
+    }
+  ]
+}

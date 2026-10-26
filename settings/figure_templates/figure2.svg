@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="2280" height="1800" viewBox="0 0 2280 1800">
+<ns0:rect width="100%" height="100%" fill="black" />
+<ns0:text x="535.0" y="66" font-family="Arial,sans-serif" font-size="44" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Uncorrected</ns0:text>
+<ns0:text x="1025.0" y="66" font-family="Arial,sans-serif" font-size="44" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Measured field map</ns0:text>
+<ns0:text x="2005.0" y="66" font-family="Arial,sans-serif" font-size="44" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">CP reference</ns0:text>
+<ns0:text x="1515.0" y="43" font-family="Arial,sans-serif" font-size="43" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Iterative shell</ns0:text>
+<ns0:text x="1515.0" y="94" font-family="Arial,sans-serif" font-size="43" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">correction</ns0:text>
+<ns0:text x="146" y="360.0" font-family="Arial,sans-serif" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Auto-prescan</ns0:text>
+<ns0:text x="146" y="409.0" font-family="Arial,sans-serif" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">shim</ns0:text>
+<ns0:image x="300" y="150" width="470" height="470" href="figure2/00.png" />
+<ns0:image x="790" y="150" width="470" height="470" href="figure2/01.png" />
+<ns0:image x="1280" y="150" width="470" height="470" href="figure2/02.png" />
+<ns0:image x="1770" y="150" width="470" height="470" href="figure2/03.png" />
+<ns0:text x="146" y="860.0" font-family="Arial,sans-serif" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Modified</ns0:text>
+<ns0:text x="146" y="909.0" font-family="Arial,sans-serif" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">X shim</ns0:text>
+<ns0:image x="300" y="650" width="470" height="470" href="figure2/04.png" />
+<ns0:image x="790" y="650" width="470" height="470" href="figure2/05.png" />
+<ns0:image x="1280" y="650" width="470" height="470" href="figure2/06.png" />
+<ns0:image x="1770" y="650" width="470" height="470" href="figure2/07.png" />
+<ns0:text x="146" y="1360.0" font-family="Arial,sans-serif" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Modified</ns0:text>
+<ns0:text x="146" y="1409.0" font-family="Arial,sans-serif" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Y shim</ns0:text>
+<ns0:image x="300" y="1150" width="470" height="470" href="figure2/08.png" />
+<ns0:image x="790" y="1150" width="470" height="470" href="figure2/09.png" />
+<ns0:image x="1280" y="1150" width="470" height="470" href="figure2/10.png" />
+<ns0:image x="1770" y="1150" width="470" height="470" href="figure2/11.png" />
+<ns0:image x="790" y="1716" width="470" height="26" preserveAspectRatio="none" href="figure2/12.png" />
+<ns0:text x="1025.0" y="1675" font-family="Arial,sans-serif" font-size="36" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white">Field (Hz)</ns0:text>
+<ns0:text x="790" y="1774" font-family="Arial,sans-serif" font-size="34" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#B7C1C9">−200</ns0:text>
+<ns0:text x="1025.0" y="1774" font-family="Arial,sans-serif" font-size="34" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#B7C1C9">0</ns0:text>
+<ns0:text x="1260" y="1774" font-family="Arial,sans-serif" font-size="34" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#B7C1C9">+200</ns0:text>
+<ns0:g id="requested_grid_psnr_pairs"><ns0:text x="146" y="477" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="normal" fill="#b7c1c9" text-anchor="middle">PSNR</ns0:text><ns0:text x="146" y="519" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="normal" fill="white" text-anchor="middle">24.7 → 37.4 dB</ns0:text><ns0:text x="146" y="977" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="normal" fill="#b7c1c9" text-anchor="middle">PSNR</ns0:text><ns0:text x="146" y="1019" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="normal" fill="white" text-anchor="middle">27.3 → 36.4 dB</ns0:text><ns0:text x="146" y="1477" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="normal" fill="#b7c1c9" text-anchor="middle">PSNR</ns0:text><ns0:text x="146" y="1519" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="normal" fill="white" text-anchor="middle">26.3 → 36.0 dB</ns0:text></ns0:g><ns0:g id="modified_shim_matched_comparison_arrows"><ns0:line x1="330" y1="760" x2="410.4426099511578" y2="792.7382714917503" stroke="#ff4040" stroke-width="7" stroke-linecap="round" /><ns0:polygon points="416,795 400.86795926623387,779.1248198992375 394.0827737414847,795.7969900457642" fill="#ff4040" /><ns0:line x1="1310" y1="760" x2="1390.4426099511577" y2="792.7382714917503" stroke="#3ee079" stroke-width="7" stroke-linecap="round" /><ns0:polygon points="1396,795 1380.8679592662338,779.1248198992375 1374.0827737414847,795.7969900457642" fill="#3ee079" /><ns0:line x1="405" y1="1578" x2="443.6717988226486" y2="1519.9923017660271" stroke="#ff4040" stroke-width="7" stroke-linecap="round" /><ns0:polygon points="447,1515 428.4175434264548,1526.6487041207297 443.394448724536,1536.633307652784" fill="#ff4040" /><ns0:line x1="1385" y1="1578" x2="1423.6717988226487" y2="1519.9923017660271" stroke="#3ee079" stroke-width="7" stroke-linecap="round" /><ns0:polygon points="1427,1515 1408.417543426455,1526.6487041207297 1423.394448724536,1536.633307652784" fill="#3ee079" /></ns0:g></ns0:svg>

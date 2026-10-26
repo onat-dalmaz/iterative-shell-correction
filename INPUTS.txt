@@ -1,0 +1,39 @@
+Private inputs
+
+The manifests name the exact three phantom conditions and five volunteer cases.
+Resolve their relative filenames under --data. MRI arrays and masks are not
+distributed. Known source SHA-256 values are checked before loading.
+
+volume.npy and the saved measured-field CP reference are complex64 [z,x,y].
+The public slice axes are [z,row,column]; no transpose or flip is applied.
+timing.npy is float32 in seconds on the same centered k-space grid, not an
+image-space time map. The published geometry is 112×768×768, with voxel spacing
+[1.5,0.546875,0.546875] mm. Physical field Hz means the acquired phase is
+exp(-i*2*pi*f*t); a prepared field must already have this sign and registration.
+The retained workflows use the configured saved CP reference and fail if it is
+missing. They never infer a field sign, register a field, or replace the reference.
+
+Image metrics use the original broad breast mask, float32 magnitude matching
+to the uncorrected image on every fourth nonempty-mask slice, and each fixed
+reference_range. Reference gains are fixed in volunteers.json. saved_gains
+record the original method gains; scoring also returns the recomputed gains.
+Figure 4B instead uses anterior_roi intersected with measured-field tissue
+support and the per-slice 55-pixel body-surface band, sampled every second
+in-plane voxel. Estimated fields are averaged 4×3×3 before evaluation. The
+signed bin means are averaged equally across five volunteers before taking
+their absolute value. This is not MAE. effective_field_hz.npy includes the
+final shell-phase contribution; accumulated_field_hz.npy is the CP-driving map
+shown in Figure 5.
+
+Phantom labels use the fixed 25 tiles on z=56, the primary geometric/tissue
+mask, no fitted gain, and the mean finite tile PSNR. The displayed slice is z=53.
+Packed phantom masks are uint8, unpacked along axis 1. All other masks are bool.
+
+Plotting is separate from rerunning correction. data/figure4.json contains the
+reported scalar results and can be plotted without MRI data. For Figures 2, 3
+and 5, --assets must contain the private saved PNG tiles listed, with hashes, in
+settings/figure_images.json. Those display assets retain the published windows,
+support and crops. The SVG templates contain no MRI images. Figure locations
+and display windows are in settings/figure_locations.json. Plotting does not
+choose new patches or alter data. A rerun Figure 4 can use --scores with the
+figure4.json produced by the scoring command.

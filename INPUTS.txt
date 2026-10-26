@@ -43,3 +43,11 @@ Example ZIPs include their own manifests. These retain the complete cohort recip
 so --case can select the supplied case. The S03 example ROI archive contains only
 the numeric mask, with exactly the original voxels; its container checksum differs
 from the original archive. The canonical settings/ manifests remain unchanged.
+
+Full-cohort commands
+
+python experiments.py run phantom --inputs settings/phantom.json --data /path/to/data --out outputs/phantom
+python experiments.py score phantom --inputs settings/phantom.json --data /path/to/data --results outputs/phantom --out outputs/phantom_scores
+python experiments.py run volunteers --inputs settings/volunteers.json --data /path/to/data --out outputs/volunteers
+python experiments.py score volunteers --inputs settings/volunteers.json --data /path/to/data --results outputs/volunteers --out outputs/scores
+python plot_figures.py --figures 2 3 5 --assets /path/to/saved_tiles --out outputs/figures

@@ -205,7 +205,7 @@
       },
       "anterior_roi": {
         "file": "S03/anterior_roi.npz",
-        "sha256": "e9326ea7056d2bd4821691e3d2ed1fa1301b72970a7880eee036b89a5717fe67",
+        "sha256": "dd194eb5042dad5be907e5b85e9ae0dc9f2fa8e4d242870b876960259a71d290",
         "key": "mask"
       },
       "body_mask": {

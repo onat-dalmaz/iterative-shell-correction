@@ -549,7 +549,8 @@
       },
       "reference": {
         "mode": "saved_complex",
-        "file": "standard_autoshim/reference_complex.npy"
+        "file": "standard_autoshim/reference_complex.npy",
+        "sha256": "51aef722937ae77d73e9d0301d5a8e7a13c001cb8328e2aa6ca6f0b0d13f5235"
       },
       "reference_plane": {
         "file": "standard_autoshim/reference_magnitude_z56.npy",

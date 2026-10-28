@@ -47,14 +47,15 @@ def config(args):
                  update_cap_hz=60, final_shells=16)
     if settings.get('correction') != fixed:
         raise ValueError('Use the fixed abstract correction settings; no sweep options are implemented')
+    # Preserve each volunteer's full-cohort identity when one case is selected.
+    settings = dict(settings, subject_numbers={case['id']: i
+                    for i, case in enumerate(settings['cases'], 1)})
     selected = getattr(args, 'case', None)
     if selected is not None:
-        if args.action not in ('run', 'check'):
-            raise ValueError('--case is supported only for run and check, not cohort scoring')
         cases = [case for case in settings['cases'] if case['id'] == selected]
         if len(cases) != 1:
             raise ValueError(f'--case must match exactly one configured case: {selected}')
-        settings = dict(settings, cases=cases)
+        settings = dict(settings, cases=cases, selected_case=selected)
     return settings
 
 
@@ -111,7 +112,8 @@ def run(settings, directory, output):
 
 def volunteer_scores(settings, directory, results):
     rows, field_rows, gains = [], {m: [] for m in ('uncorrected', 'autofocus', 'isc')}, {}
-    for subject, case in enumerate(settings['cases'], 1):
+    for case in settings['cases']:
+        subject = settings['subject_numbers'][case['id']]
         original = load_array(case['volume'], directory)
         reference = magnitude(load_array(case['reference'], directory), case['reference_gain'])
         mask = load_mask(case['breast_mask'], directory, original.shape)
@@ -141,6 +143,14 @@ def volunteer_scores(settings, directory, results):
                 rows.append(dict(subject=subject, case_id=case['id'], method=method,
                                  metric=metric, value=value))
             field_rows[method].append(field_bins(fields[method], reference_field, support))
+    if settings.get('selected_case') is not None:
+        case = settings['cases'][0]
+        return dict(scope='single_case', kind='volunteers', case_id=case['id'],
+                    subject=settings['subject_numbers'][case['id']],
+                    methods=list(field_rows), image_rows=rows, gains=gains,
+                    field_bins=[dict(method=method, **point)
+                                for method, volunteers in field_rows.items()
+                                for point in volunteers[0]])
     means = []
     for method in field_rows:
         for metric in ('psnr', 'ssim_3d_sigma1p5mm', 'hfen_3d_sigma1p5mm'):
@@ -177,7 +187,7 @@ def main():
     parser.add_argument('workflow', choices=('phantom', 'volunteers'))
     parser.add_argument('--inputs', type=Path, required=True)
     parser.add_argument('--data', type=Path, required=True)
-    parser.add_argument('--case', metavar='ID', help='Run or check one case from the full frozen manifest')
+    parser.add_argument('--case', metavar='ID', help='Run, check or score one case from the full frozen manifest')
     parser.add_argument('--results', type=Path, help='Saved correction output directory for scoring')
     parser.add_argument('--out', type=Path)
     args = parser.parse_args()
@@ -196,9 +206,13 @@ def main():
         args.out.mkdir(parents=True, exist_ok=False)
         if args.workflow == 'volunteers':
             value = volunteer_scores(settings, args.data, args.results)
-            name = 'figure4.json'
+            name = 'case_scores.json' if args.case else 'figure4.json'
         else:
             value, name = phantom_scores(settings, args.data, args.results), 'phantom_scores.json'
+            if args.case:
+                value = dict(scope='single_case', kind='phantom', case_id=args.case,
+                             image_rows=value)
+                name = 'case_scores.json'
         path = args.out / name
         path.write_text(json.dumps(value, indent=2, allow_nan=False) + '\n')
         print(path)

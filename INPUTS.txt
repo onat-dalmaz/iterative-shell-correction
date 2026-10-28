@@ -40,9 +40,12 @@ choose new patches or alter data. A rerun Figure 4 can use --scores with the
 figure4.json produced by the scoring command.
 
 Example ZIPs include their own manifests. These retain the complete cohort recipe
-so --case can select the supplied case. The S03 example ROI archive contains only
-the numeric mask, with exactly the original voxels; its container checksum differs
-from the original archive. The canonical settings/ manifests remain unchanged.
+so --case can select the supplied case for checking, correction or scoring.
+Single-case scoring writes case_scores.json with individual image metrics and
+signed field-bin means and counts; it does not calculate five-volunteer averages.
+The corresponding reported scores are in data/figure4.json and data/phantom_psnr.csv.
+The S03 example ROI archive contains only the numeric mask, with exactly the
+original voxels. Both the bundled and settings/ manifests use its public checksum.
 
 Full-cohort commands
 
